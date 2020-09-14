@@ -85,6 +85,8 @@ requirements:
     - pthreads-win32  # [win]
     - ilmbase
   run:
+    - boost
+    - boost-cpp
     - libglu  # [linux]
     - python
     - pthreads-win32  # [win]
