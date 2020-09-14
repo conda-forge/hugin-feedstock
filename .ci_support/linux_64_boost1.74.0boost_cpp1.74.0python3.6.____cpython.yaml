@@ -1,0 +1,58 @@
+boost:
+- 1.74.0
+boost_cpp:
+- 1.74.0
+c_compiler:
+- gcc
+c_compiler_version:
+- '7'
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- gxx
+cxx_compiler_version:
+- '7'
+docker_image:
+- condaforge/linux-anvil-comp7
+fftw:
+- '3'
+glew:
+- '2.1'
+jpeg:
+- '9'
+libpng:
+- '1.6'
+libtiff:
+- 4.1.0
+perl:
+- 5.26.2
+pin_run_as_build:
+  boost:
+    max_pin: x.x.x
+  boost-cpp:
+    max_pin: x.x.x
+  fftw:
+    max_pin: x
+  glew:
+    max_pin: x.x
+  jpeg:
+    max_pin: x
+  libpng:
+    max_pin: x.x
+  libtiff:
+    max_pin: x
+  perl:
+    max_pin: x.x.x
+  python:
+    min_pin: x.x
+    max_pin: x.x
+  sqlite:
+    max_pin: x
+python:
+- 3.6.* *_cpython
+sqlite:
+- '3'
+target_platform:
+- linux-64
