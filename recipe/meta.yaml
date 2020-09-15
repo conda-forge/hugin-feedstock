@@ -15,7 +15,7 @@ source:
 
 build:
   skip: true  # [osx]
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -76,10 +76,8 @@ requirements:
     - wxwidgets 3.1
     - perl
     - libglu  # [linux]
-    # boost was already migrated for vigra, and the build we
-    # need uses boost 1.72
-    - boost 1.72
-    - boost-cpp 1.72
+    - boost
+    - boost-cpp
     - fftw
     # For some reason these are requried by the windows
     # build system
@@ -87,8 +85,8 @@ requirements:
     - pthreads-win32  # [win]
     - ilmbase
   run:
-    - boost 1.72
-    - boost-cpp 1.72
+    - boost
+    - boost-cpp
     - libglu  # [linux]
     - python
     - pthreads-win32  # [win]
