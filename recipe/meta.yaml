@@ -76,7 +76,6 @@ requirements:
     - wxwidgets 3.1
     - perl
     - libglu  # [linux]
-    - boost
     - boost-cpp
     - fftw
     # For some reason these are requried by the windows
@@ -85,7 +84,6 @@ requirements:
     - pthreads-win32  # [win]
     - ilmbase
   run:
-    - boost
     - boost-cpp
     - libglu  # [linux]
     - python
