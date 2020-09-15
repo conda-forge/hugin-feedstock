@@ -15,11 +15,10 @@ source:
 
 build:
   skip: true  # [osx]
-  number: 2
+  number: 3
 
 requirements:
   build:
-    - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - libgomp      # [linux]
     - make   # [unix]
