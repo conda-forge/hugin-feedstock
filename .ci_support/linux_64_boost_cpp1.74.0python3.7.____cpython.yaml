@@ -1,7 +1,5 @@
-boost:
-- 1.74.0
 boost_cpp:
-- 1.72.0
+- 1.74.0
 c_compiler:
 - gcc
 c_compiler_version:
@@ -29,8 +27,6 @@ libtiff:
 perl:
 - 5.26.2
 pin_run_as_build:
-  boost:
-    max_pin: x.x.x
   boost-cpp:
     max_pin: x.x.x
   fftw:

@@ -1,21 +1,13 @@
-boost:
-- 1.72.0
 boost_cpp:
-- 1.72.0
+- 1.74.0
 c_compiler:
-- gcc
-c_compiler_version:
-- '7'
+- vs2017
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- gxx
-cxx_compiler_version:
-- '7'
-docker_image:
-- condaforge/linux-anvil-comp7
+- vs2017
 fftw:
 - '3'
 glew:
@@ -29,8 +21,6 @@ libtiff:
 perl:
 - 5.26.2
 pin_run_as_build:
-  boost:
-    max_pin: x.x.x
   boost-cpp:
     max_pin: x.x.x
   fftw:
@@ -55,4 +45,4 @@ python:
 sqlite:
 - '3'
 target_platform:
-- linux-64
+- win-64
