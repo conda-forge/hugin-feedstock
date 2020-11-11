@@ -1,5 +1,7 @@
 boost_cpp:
 - 1.72.0
+cdt_name:
+- cos6
 channel_sources:
 - conda-forge,defaults
 channel_targets:
@@ -9,7 +11,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '7'
 docker_image:
-- condaforge/linux-anvil-comp7
+- quay.io/condaforge/linux-anvil-comp7
 fftw:
 - '3'
 glew:
@@ -20,6 +22,8 @@ libpng:
 - '1.6'
 libtiff:
 - 4.1.0
+openexr:
+- 2.5.1
 perl:
 - 5.26.2
 pin_run_as_build:
