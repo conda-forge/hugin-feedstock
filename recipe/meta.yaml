@@ -2,7 +2,7 @@
 {% set version_major_minor = ".".join(version.split('.')[:2]) %}
 
 package:
-  name: hugin
+  name: hugin-base
   version: {{ version }}
 
 source:
@@ -13,12 +13,12 @@ source:
   #   - windows_unbundle.patch
 
 build:
-  skip: true  # [osx]
   number: 1
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ compiler('c') }}
     - libgomp      # [linux]
     - make   # [unix]
     - ninja  # [win]
@@ -53,6 +53,7 @@ requirements:
     - xorg-libxfixes           # [linux]
     - xorg-libsm               # [linux]
     - python
+    - pango
     - pip
     - libtiff
     - libpano13
@@ -64,17 +65,9 @@ requirements:
     - glew
     - sqlite
     - lcms2
-    # Warning: With vanially conda, wxwidgets will not work on linux since they
-    # internally code strings as UTF-16 strings on windows
-    # conda-forge has patched conda: https://github.com/conda-forge/conda-feedstock/pull/117
-    # But upstream has rejected a similar patch:
-    # https://github.com/conda/conda/pull/9946
-    # In favor of more time to work on a longer term fix
-    # https://github.com/conda/conda-build/blob/master/tests/test_api_build.py#L240
-    - wxwidgets 3.1
     - perl
-    - libglu  # [linux]
-    - boost-cpp
+    # - libglu  # [linux]
+    - boost-cpp  1.74
     - fftw
     # For some reason these are requried by the windows
     # build system
@@ -82,7 +75,7 @@ requirements:
     - pthreads-win32  # [win]
     - ilmbase
   run:
-    - boost-cpp
+    - boost-cpp  1.74
     - libglu  # [linux]
     - python
     - pthreads-win32  # [win]
@@ -99,6 +92,88 @@ test:
     - cpfind -help
     - autooptimiser -help
     - pano_modify -help
+
+outputs:
+  - name: hugin-base
+    build:
+      skip: true            # [osx]
+    script: build_base.sh   # [unix]
+    script: bld_base.bat    # [win]
+  - name: hugin
+    build:
+      skip: true           # [osx]
+    script: build_gui.sh   # [unix]
+    script: bld_gui.bat    # [win]
+    requirements:
+      build:
+        - {{ compiler('cxx') }}
+        - {{ compiler('c') }}
+        - libgomp      # [linux]
+        - make   # [unix]
+        - ninja  # [win]
+        - cmake
+        - swig
+        - binutils  # [linux]
+        - pkg-config  # [unix]
+        - {{ cdt('mesa-libgl-devel') }}  # [linux]
+        - {{ cdt('mesa-dri-drivers') }}  # [linux]
+        - {{ cdt('libselinux') }}  # [linux]
+        - {{ cdt('libxdamage') }}  # [linux]
+        - {{ cdt('libxxf86vm') }}  # [linux]
+        - {{ cdt('libxext') }}     # [linux]
+        # Just taken from wxWidgets
+        - {{ cdt('libice-devel') }}  # [linux]
+        - {{ cdt('libsm-devel') }}  # [linux]
+        - {{ cdt('libx11-devel') }}  # [linux]
+        - {{ cdt('libxcomposite-devel') }}  # [linux]
+        - {{ cdt('libxcursor-devel') }}  # [linux]
+        - {{ cdt('libxdamage-devel') }}  # [linux]
+        - {{ cdt('libxext-devel') }}  # [linux]
+        - {{ cdt('libxi-devel') }}  # [linux]
+        - {{ cdt('libxinerama-devel') }}  # [linux]
+        - {{ cdt('libxfixes-devel') }}  # [linux]
+        - {{ cdt('libxrandr-devel') }}  # [linux]
+        - {{ cdt('libxrender-devel') }}  # [linux]
+        - {{ cdt('libxtst-devel') }}  # [linux]
+        - {{ cdt('mesa-libEGL-devel') }}  # [linux]
+        - {{ cdt('mesa-libGL-devel') }}  # [linux]
+        - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
+      host:
+        - {{ pin_subpackage('hugin-base', exact=True) }}
+        - xorg-libxfixes           # [linux]
+        - xorg-libsm               # [linux]
+        - pango
+        - python
+        - pip
+        - libtiff
+        - libpano13
+        - jpeg
+        - libpng
+        - openexr
+        - vigra
+        - exiv2
+        - glew
+        - sqlite
+        - lcms2
+        - perl
+        - boost-cpp  1.74
+        - fftw
+        # For some reason these are requried by the windows
+        # build system
+        - enblend
+        - pthreads-win32  # [win]
+        - ilmbase
+        # Warning: With vanially conda, wxwidgets will not work on linux since they
+        # internally code strings as UTF-16 strings on windows
+        # conda-forge has patched conda: https://github.com/conda-forge/conda-feedstock/pull/117
+        # But upstream has rejected a similar patch:
+        # https://github.com/conda/conda/pull/9946
+        # In favor of more time to work on a longer term fix
+        # https://github.com/conda/conda-build/blob/master/tests/test_api_build.py#L240
+        - wxwidgets 3.1
+        - libglu  # [linux]
+      run:
+        - {{ pin_subpackage('hugin-base', exact=True) }}
 
 about:
   home: http://hugin.sourceforge.net/

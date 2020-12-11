@@ -47,6 +47,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/CMakeModules )
 ## Cleaner Debian Packaging (disable by -DDISABLE_DPKG=ON)
 ##
 OPTION (DISABLE_DPKG "Do not use debian scripts to get package dependences" OFF)
+OPTION (ENABLE_GUI "Enable Graphical user interface" ON)
 
 
 IF(NOT DISABLE_DPKG)
@@ -74,8 +75,8 @@ include(CheckIncludeFiles)
 project(hugin)
 
 # version
-set(V_MAJOR 2019)
-set(V_MINOR 2)
+set(V_MAJOR 2020)
+set(V_MINOR 0)
 set(V_PATCH 0)
 
 #
@@ -178,6 +179,7 @@ ENDIF(WIN32)
 ##
 #  This must come before FINDs for tiff, jpeg, png, zlib to enable
 #  finding the wxWidgets distributions of those packages (Win32 only).
+IF(ENABLE_GUI)
 IF(WIN32)
   FIND_PACKAGE(wxWidgets REQUIRED base core)
   FIND_PACKAGE(wxWidgets REQUIRED base core aui)
@@ -209,6 +211,7 @@ IF (UNIX)
     MESSAGE(FATAL_ERROR "wxWidgets is as non-GUI package configured. Check you wxWidgets installation (maybe wxgtkXX-devel is missing)")
   ENDIF()
 ENDIF (UNIX)
+ENDIF() # ENABLE_GUI
 
 ##
 ## Graphics libraries
@@ -223,6 +226,7 @@ FIND_PACKAGE(PNG REQUIRED)
 INCLUDE_DIRECTORIES(${ZLIB_INCLUDE_DIR})
 INCLUDE_DIRECTORIES(${PNG_INCLUDE_DIR})
 
+IF(ENABLE_GUI)
 IF(WIN32 AND NOT HUGIN_SHARED)
 IF(NOT ${WX_jpeg} MATCHES ${JPEG_LIBRARIES_RELEASE})
 MESSAGE(FATAL_ERROR "Using different libjpeg and wxjpeg. This does not work with static libs. Use wxjpeg for libjpeg")
@@ -238,6 +242,7 @@ MESSAGE(FATAL_ERROR "Using different libtiff and wxtiff. This does not work with
 ENDIF()
 
 ENDIF()
+ENDIF()  # ENABLE_GUI
 
 FIND_PACKAGE(OpenEXR REQUIRED)
 include_directories(${OPENEXR_INCLUDE_DIR})
