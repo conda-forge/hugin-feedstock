@@ -9,15 +9,18 @@ source:
   url: https://iweb.dl.sourceforge.net/project/hugin/hugin/hugin-{{ version_major_minor }}/hugin-{{ version }}.tar.bz2
   sha256: 283e7601259a7914cb075333424410928a439dc5f84216f33e2fe55501fbcacb
   # Line endings frustrate me. So I've just vendored the files but documented the patch.
-  # patches:
-  #   - windows_unbundle.patch
+  patches:                    # [win]
+    - windows_unbundle.patch  # [win]
 
 build:
   skip: true  # [osx]
-  number: 0
+  number: 1
 
 requirements:
   build:
+    # Windows git is broken, and patches don't apply well
+    - m2-git  # [win]
+    - m2-patch  # [win]
     - {{ compiler('cxx') }}
     - libgomp      # [linux]
     - make   # [unix]
