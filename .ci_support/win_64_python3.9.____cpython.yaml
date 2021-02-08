@@ -6,6 +6,8 @@ channel_targets:
 - conda-forge main
 cxx_compiler:
 - vs2017
+exiv2:
+- '0.27'
 fftw:
 - '3'
 glew:
@@ -15,7 +17,7 @@ jpeg:
 libpng:
 - '1.6'
 libtiff:
-- 4.1.0
+- '4'
 openexr:
 - '2.5'
 perl:
@@ -41,7 +43,7 @@ pin_run_as_build:
   sqlite:
     max_pin: x
 python:
-- 3.8.* *_cpython
+- 3.9.* *_cpython
 sqlite:
 - '3'
 target_platform:
