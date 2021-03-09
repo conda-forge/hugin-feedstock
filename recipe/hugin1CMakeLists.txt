@@ -4,6 +4,7 @@
 
 # The Copyright of this file is held by the Hugin Developers under the GPL-2.0
 # license
+IF(ENABLE_GUI)
 
 include_directories( ${CMAKE_SOURCE_DIR}/src/hugin1 )
 
@@ -32,3 +33,4 @@ add_subdirectory(executor)
 add_subdirectory(hugin)
 add_subdirectory(ptbatcher)
 add_subdirectory(calibrate_lens)
+ENDIF()  # ENABLE_GUI

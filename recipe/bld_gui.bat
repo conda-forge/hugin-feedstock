@@ -1,3 +1,5 @@
+echo on
+
 copy %RECIPE_DIR%\CMakeLists.txt .
 if errorlevel 1 exit 1
 
@@ -7,8 +9,10 @@ if errorlevel 1 exit 1
 copy %RECIPE_DIR%\win_bundle.cmake CMakeModules\win_bundle.cmake
 if errorlevel 1 exit 1
 
-mkdir build
-if errorlevel 1 exit 1
+
+:REM This directory was built in the previous phase
+:REM mkdir build
+:REM if errorlevel 1 exit 1
 cd build
 if errorlevel 1 exit 1
 
@@ -34,6 +38,7 @@ cmake -LAH -G Ninja                           ^
     -DTIFF_DLL=%LIBRARY_BIN%\libtiff.dll      ^
     -DVIGRA_DLL=%LIBRARY_BIN%\vigraimpex.dll  ^
     -DEXIFTOOL_EXE_DIR=%PREFIX%\bin           ^
+    -DENABLE_GUI=ON                           ^
     ..
 
 if errorlevel 1 exit 1
