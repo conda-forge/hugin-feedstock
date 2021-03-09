@@ -1,5 +1,5 @@
-About hugin
-===========
+About hugin-base
+================
 
 Home: http://hugin.sourceforge.net/
 
@@ -121,20 +121,21 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-hugin-green.svg)](https://anaconda.org/conda-forge/hugin) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/hugin.svg)](https://anaconda.org/conda-forge/hugin) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/hugin.svg)](https://anaconda.org/conda-forge/hugin) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/hugin.svg)](https://anaconda.org/conda-forge/hugin) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-hugin--base-green.svg)](https://anaconda.org/conda-forge/hugin-base) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/hugin-base.svg)](https://anaconda.org/conda-forge/hugin-base) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/hugin-base.svg)](https://anaconda.org/conda-forge/hugin-base) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/hugin-base.svg)](https://anaconda.org/conda-forge/hugin-base) |
 
-Installing hugin
-================
+Installing hugin-base
+=====================
 
-Installing `hugin` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `hugin-base` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `hugin` can be installed with:
+Once the `conda-forge` channel has been enabled, `hugin, hugin-base` can be installed with:
 
 ```
-conda install hugin
+conda install hugin hugin-base
 ```
 
 It is possible to list all of the versions of `hugin` available on your platform with:
@@ -182,26 +183,26 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating hugin-feedstock
-========================
+Updating hugin-base-feedstock
+=============================
 
-If you would like to improve the hugin recipe or build a new
+If you would like to improve the hugin-base recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/hugin-feedstock are
+Note that all branches in the conda-forge/hugin-base-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
  * If the version of a package **is not** being increased, please add or increase
-   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string).
+   the [``build/number``](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#build-number-and-string).
  * If the version of a package **is** being increased, please remember to return
-   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string)
+   the [``build/number``](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#build-number-and-string)
    back to 0.
 
 Feedstock Maintainers
