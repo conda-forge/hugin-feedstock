@@ -95,8 +95,6 @@ test:
 
 outputs:
   - name: hugin-base
-    build:
-      skip: true            # [osx]
     script: build_base.sh   # [unix]
     script: bld_base.bat    # [win]
   - name: hugin
