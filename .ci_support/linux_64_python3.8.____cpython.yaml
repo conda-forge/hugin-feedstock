@@ -29,7 +29,7 @@ libtiff:
 openexr:
 - '2.5'
 pango:
-- '1.42'
+- '1.48'
 perl:
 - 5.26.2
 pin_run_as_build:
