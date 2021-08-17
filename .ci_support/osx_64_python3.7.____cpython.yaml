@@ -29,7 +29,7 @@ macos_machine:
 openexr:
 - '2.5'
 pango:
-- '1.42'
+- '1.48'
 perl:
 - 5.32.1
 pin_run_as_build:
