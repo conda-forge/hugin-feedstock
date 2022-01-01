@@ -1,4 +1,4 @@
-{% set version = "2020.0.0" %}
+{% set version = "2021.0.0" %}
 {% set version_major_minor = ".".join(version.split('.')[:2]) %}
 
 package:
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://iweb.dl.sourceforge.net/project/hugin/hugin/hugin-{{ version_major_minor }}/hugin-{{ version }}.tar.bz2
-  sha256: 283e7601259a7914cb075333424410928a439dc5f84216f33e2fe55501fbcacb
+  sha256: 047aea8a7fa47844b34ef27c19d3b697e84939dcb1fdbbeb2c204621b66eead9
   # Line endings frustrate me. So I've just vendored the files but documented the patch.
   # patches:
   #   - windows_unbundle.patch
 
 build:
-  number: 3
+  number: 0
 
 requirements:
   build:
@@ -95,13 +95,13 @@ test:
 
 outputs:
   - name: hugin-base
-    script: build_base.sh   # [unix]
-    script: bld_base.bat    # [win]
+    script: build_base.sh  # [unix]
+    script: bld_base.bat  # [win]
   - name: hugin
     build:
-      skip: true           # [osx]
-    script: build_gui.sh   # [unix]
-    script: bld_gui.bat    # [win]
+      skip: true  # [osx]
+    script: build_gui.sh  # [unix]
+    script: bld_gui.bat  # [win]
     requirements:
       build:
         - {{ compiler('cxx') }}
