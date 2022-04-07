@@ -61,6 +61,8 @@ requirements:
     - libpng
     - openexr
     - vigra
+    # vigra build 1030 didn't link in openexr
+    - vigra * *1030
     - exiv2
     - glew
     - sqlite
