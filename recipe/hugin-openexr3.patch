@@ -1,8 +1,7 @@
-Index: hugin-2020.0.0/CMakeLists.txt
-===================================================================
---- hugin-2020.0.0.orig/CMakeLists.txt
-+++ hugin-2020.0.0/CMakeLists.txt
-@@ -214,7 +214,18 @@ ENDIF()
+diff -u -r hugin-2021.0.0_original/CMakeLists.txt hugin-2021.0.0/CMakeLists.txt
+--- hugin-2021.0.0_original/CMakeLists.txt	2021-12-30 04:14:39.000000000 -0500
++++ hugin-2021.0.0/CMakeLists.txt	2022-04-08 07:19:45.685730379 -0400
+@@ -217,7 +217,18 @@
  
  ENDIF()
  
@@ -10,22 +9,34 @@ Index: hugin-2020.0.0/CMakeLists.txt
 +FIND_PACKAGE(Imath CONFIG)
 +IF(TARGET Imath::Imath)
 +    FIND_PACKAGE(OpenEXR CONFIG REQUIRED)
-+	FIND_PACKAGE(ZLIB REQUIRED)
-+	get_target_property(OPENEXR_INCLUDE_DIR OpenEXR::OpenEXRConfig INTERFACE_INCLUDE_DIRECTORIES)
-+	get_target_property(IMATH_INCLUDE_DIR Imath::ImathConfig INTERFACE_INCLUDE_DIRECTORIES)
++    FIND_PACKAGE(ZLIB REQUIRED)
++    get_target_property(OPENEXR_INCLUDE_DIR OpenEXR::OpenEXRConfig INTERFACE_INCLUDE_DIRECTORIES)
++    get_target_property(IMATH_INCLUDE_DIR Imath::ImathConfig INTERFACE_INCLUDE_DIRECTORIES)
 +    list(APPEND OPENEXR_INCLUDE_DIR ${IMATH_INCLUDE_DIR})
-+	set(OPENEXR_LIBRARIES OpenEXR::OpenEXR Imath::Imath ${ZLIB_LIBRARIES})
-+	set(OPENEXR_FOUND TRUE)
++    set(OPENEXR_LIBRARIES OpenEXR::OpenEXR Imath::Imath ${ZLIB_LIBRARIES})
++    set(OPENEXR_FOUND TRUE)
 +ELSE()
 +    FIND_PACKAGE(OpenEXR REQUIRED)
 +ENDIF()
- include_directories(${OPENEXR_INCLUDE_DIR})
+ include_directories(${OPENEXR_INCLUDE_DIRS})
  
  FIND_PACKAGE(VIGRA 1.9.0 REQUIRED)
-Index: hugin-2020.0.0/src/hugin_base/vigra_ext/ReduceOpenEXR.h
-===================================================================
---- hugin-2020.0.0.orig/src/hugin_base/vigra_ext/ReduceOpenEXR.h
-+++ hugin-2020.0.0/src/hugin_base/vigra_ext/ReduceOpenEXR.h
+diff -u -r hugin-2021.0.0_original/CMakeModules/FindVIGRA.cmake hugin-2021.0.0/CMakeModules/FindVIGRA.cmake
+--- hugin-2021.0.0_original/CMakeModules/FindVIGRA.cmake	2021-08-21 10:43:52.000000000 -0400
++++ hugin-2021.0.0/CMakeModules/FindVIGRA.cmake	2022-04-08 07:21:03.693224789 -0400
+@@ -75,6 +75,9 @@
+       )
+       STRING(TOLOWER "${OUTPUT_LDD_VIGRA}" OUTPUT_LDD_VIGRA_LOWER)
+       IF(NOT "${OUTPUT_LDD_VIGRA_LOWER}" MATCHES "libilmimf|libopenexr")
++      ELSEIF(NOT "${OUTPUT_LDD_VIGRA_LOWER}" MATCHES "libiopenexr")
++        MESSAGE(STATUS "OpenEXR is version 3 or greter.")
++      ELSE()
+         MESSAGE(FATAL_ERROR "Libvigraimpex found. But vigraimpex seems to compiled without OpenEXR support. OpenEXR support is required for Hugin.")
+       ENDIF()
+     ELSE()
+diff -u -r hugin-2021.0.0_original/src/hugin_base/vigra_ext/ReduceOpenEXR.h hugin-2021.0.0/src/hugin_base/vigra_ext/ReduceOpenEXR.h
+--- hugin-2021.0.0_original/src/hugin_base/vigra_ext/ReduceOpenEXR.h	2021-06-30 11:29:52.000000000 -0400
++++ hugin-2021.0.0/src/hugin_base/vigra_ext/ReduceOpenEXR.h	2022-04-08 07:20:13.357551219 -0400
 @@ -25,8 +25,8 @@
  #include <vigra_ext/HDRUtils.h>
  #include <vigra_ext/FileRAII.h>
@@ -34,20 +45,5 @@ Index: hugin-2020.0.0/src/hugin_base/vigra_ext/ReduceOpenEXR.h
 -#include <ImfArray.h>
 +#include <OpenEXR/ImfRgbaFile.h>
 +#include <OpenEXR/ImfArray.h>
+ #include "hugin_utils/stl_utils.h"
  
- 
- // hack to read pgm header
-Index: hugin-2020.0.0/CMakeModules/FindVIGRA.cmake
-===================================================================
---- hugin-2020.0.0.orig/CMakeModules/FindVIGRA.cmake
-+++ hugin-2020.0.0/CMakeModules/FindVIGRA.cmake
-@@ -75,6 +75,9 @@ IF (VIGRA_FOUND)
-       )
-       STRING(TOLOWER "${OUTPUT_LDD_VIGRA}" OUTPUT_LDD_VIGRA_LOWER)
-       IF(NOT "${OUTPUT_LDD_VIGRA_LOWER}" MATCHES "libilmimf")
-+      ELSEIF(NOT "${OUTPUT_LDD_VIGRA_LOWER}" MATCHES "libiopenexr")
-+	    MESSAGE(STATUS "OpenEXR is version 3 or greter.")
-+	  ELSE()
-         MESSAGE(FATAL_ERROR "Libvigraimpex found. But vigraimpex seems to compiled without OpenEXR support. OpenEXR support is required for Hugin.")
-       ENDIF()
-     ELSE()
