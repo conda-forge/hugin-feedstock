@@ -14,7 +14,7 @@ source:
   #   - windows_unified_manifest.patch
 
 build:
-  number: 3
+  number: 4
 
 requirements:
   build:
@@ -68,7 +68,7 @@ requirements:
     - lcms2
     - perl
     # - libglu  # [linux]
-    - boost-cpp  1.74
+    - boost-cpp
     - fftw
     # For some reason these are requried by the windows
     # build system
@@ -76,7 +76,7 @@ requirements:
     - pthreads-win32  # [win]
     - ilmbase
   run:
-    - boost-cpp  1.74
+    - boost-cpp
     - libglu  # [linux]
     - python
     - pthreads-win32  # [win]
@@ -155,7 +155,7 @@ outputs:
         - sqlite
         - lcms2
         - perl
-        - boost-cpp  1.74
+        - boost-cpp
         - fftw
         # For some reason these are requried by the windows
         # build system
@@ -169,7 +169,7 @@ outputs:
         # https://github.com/conda/conda/pull/9946
         # In favor of more time to work on a longer term fix
         # https://github.com/conda/conda-build/blob/master/tests/test_api_build.py#L240
-        - wxwidgets 3.1
+        - wxwidgets
         - libglu  # [linux]
       run:
         - {{ pin_subpackage('hugin-base', exact=True) }}

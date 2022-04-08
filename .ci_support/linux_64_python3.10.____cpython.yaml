@@ -1,3 +1,5 @@
+boost_cpp:
+- 1.74.0
 c_compiler:
 - gcc
 c_compiler_version:
@@ -33,6 +35,8 @@ pango:
 perl:
 - 5.32.1
 pin_run_as_build:
+  boost-cpp:
+    max_pin: x.x.x
   fftw:
     max_pin: x
   glew:
@@ -56,6 +60,8 @@ sqlite:
 - '3'
 target_platform:
 - linux-64
+wxwidgets:
+- '3.1'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
