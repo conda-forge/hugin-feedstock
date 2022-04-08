@@ -14,6 +14,8 @@ fftw:
 - '3'
 glew:
 - '2.1'
+imath:
+- '3.1'
 jpeg:
 - '9'
 libpng:
@@ -21,7 +23,7 @@ libpng:
 libtiff:
 - '4'
 openexr:
-- '2.5'
+- '3.1'
 pango:
 - '1.50'
 perl:
@@ -46,6 +48,8 @@ pin_run_as_build:
     max_pin: x.x
   sqlite:
     max_pin: x
+  zlib:
+    max_pin: x.x
 python:
 - 3.10.* *_cpython
 sqlite:
@@ -54,3 +58,5 @@ target_platform:
 - win-64
 wxwidgets:
 - '3.1'
+zlib:
+- '1.2'
