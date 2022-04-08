@@ -11,9 +11,10 @@ source:
   # Line endings frustrate me. So I've just vendored the files but documented the patch.
   # patches:
   #   - windows_unbundle.patch
+  #   - windows_unified_manifest.patch
 
 build:
-  number: 2
+  number: 3
 
 requirements:
   build:

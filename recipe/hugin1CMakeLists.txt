@@ -17,13 +17,8 @@ ENDIF(WIN32)
 
 # populate correct dpi aware manifest from wxWidgets
 IF(WIN32)
-  IF(CMAKE_SIZEOF_VOID_P EQUAL 8) 
-    # 64 bit build
-    SET(WINDOWS_DPI_MANIFEST "${wxWidgets_ROOT_DIR}/include/wx/msw/amd64.manifest")
-  ELSE()
     # 32 bit built
-    SET(WINDOWS_DPI_MANIFEST "${wxWidgets_ROOT_DIR}/include/wx/msw/wx-dpi-aware-pmv2.manifest")
-  ENDIF()
+    SET(WINDOWS_DPI_MANIFEST "${wxWidgets_ROOT_DIR}/include/wx/msw/wx_dpi_aware_pmv2.manifest")
 ENDIF()
 
 add_subdirectory(base_wx)
