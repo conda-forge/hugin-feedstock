@@ -62,6 +62,7 @@ requirements:
     - libpano13
     - jpeg
     - libpng
+    - zlib
     - openexr
     - vigra
     - exiv2
