@@ -1,0 +1,22 @@
+--- hugin-2021.0.0_original/src/hugin1/CMakeLists.txt	2021-05-29 07:34:08.000000000 -0400
++++ hugin-2021.0.0/src/hugin1/CMakeLists.txt	2022-04-07 21:43:28.358266615 -0400
+@@ -10,19 +10,10 @@
+ 
+ # populate correct dpi aware manifest from wxWidgets
+ IF(WIN32)
+-  IF(CMAKE_SIZEOF_VOID_P EQUAL 8) 
+-    # 64 bit build
+-    FIND_FILE(WINDOWS_DPI_MANIFEST 
+-      NAMES amd64_dpi_aware_pmv2.manifest amd64-dpi-aware-pmv2.manifest
+-      PATHS "${wxWidgets_ROOT_DIR}/include/wx/msw/"
+-    )
+-  ELSE()
+-    # 32 bit build
+     FIND_FILE(WINDOWS_DPI_MANIFEST 
+       NAMES wx_dpi_aware_pmv2.manifest wx-dpi-aware-pmv2.manifest
+       PATHS "${wxWidgets_ROOT_DIR}/include/wx/msw/"
+     )
+-  ENDIF()
+   IF(NOT WINDOWS_DPI_MANIFEST)
+     MESSAGE(FATAL_ERROR "Manifest in wx directory not found. Is wxWidgets not new enough or corrupted?")
+   ENDIF()
