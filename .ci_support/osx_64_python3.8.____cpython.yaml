@@ -1,5 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
+boost_cpp:
+- 1.74.0
 c_compiler:
 - clang
 c_compiler_version:
@@ -33,6 +35,8 @@ pango:
 perl:
 - 5.32.1
 pin_run_as_build:
+  boost-cpp:
+    max_pin: x.x.x
   fftw:
     max_pin: x
   glew:
@@ -50,6 +54,8 @@ pin_run_as_build:
     max_pin: x.x
   sqlite:
     max_pin: x
+  zlib:
+    max_pin: x.x
 python:
 - 3.8.* *_cpython
 sqlite:
@@ -59,3 +65,5 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+zlib:
+- '1.2'

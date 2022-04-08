@@ -1,3 +1,5 @@
+boost_cpp:
+- 1.74.0
 c_compiler:
 - vs2017
 channel_sources:
@@ -25,6 +27,8 @@ pango:
 perl:
 - 5.32.1
 pin_run_as_build:
+  boost-cpp:
+    max_pin: x.x.x
   fftw:
     max_pin: x
   glew:
@@ -42,9 +46,13 @@ pin_run_as_build:
     max_pin: x.x
   sqlite:
     max_pin: x
+  zlib:
+    max_pin: x.x
 python:
 - 3.7.* *_cpython
 sqlite:
 - '3'
 target_platform:
 - win-64
+zlib:
+- '1.2'
