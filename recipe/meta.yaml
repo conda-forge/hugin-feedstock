@@ -71,7 +71,7 @@ requirements:
     - lcms2
     - perl
     # - libglu  # [linux]
-    - boost-cpp  1.74
+    - boost-cpp
     - fftw
     # For some reason these are requried by the windows
     # build system
@@ -79,7 +79,7 @@ requirements:
     - pthreads-win32  # [win]
     - ilmbase
   run:
-    - boost-cpp  1.74
+    - boost-cpp
     - libglu  # [linux]
     - python
     - pthreads-win32  # [win]
@@ -159,7 +159,7 @@ outputs:
         - sqlite
         - lcms2
         - perl
-        - boost-cpp  1.74
+        - boost-cpp
         - fftw
         # For some reason these are requried by the windows
         # build system
