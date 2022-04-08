@@ -21,7 +21,7 @@ libpng:
 libtiff:
 - '4'
 openexr:
-- '2.5'
+- '3.1'
 pango:
 - '1.50'
 perl:
