@@ -8,13 +8,14 @@ package:
 source:
   url: https://iweb.dl.sourceforge.net/project/hugin/hugin/hugin-{{ version_major_minor }}/hugin-{{ version }}.tar.bz2
   sha256: 047aea8a7fa47844b34ef27c19d3b697e84939dcb1fdbbeb2c204621b66eead9
+  patches:
+    - hugin-openexr3.patch
   # Line endings frustrate me. So I've just vendored the files but documented the patch.
-  # patches:
   #   - windows_unbundle.patch
   #   - windows_unified_manifest.patch
 
 build:
-  number: 4
+  number: 5
 
 requirements:
   build:
@@ -60,6 +61,8 @@ requirements:
     - libpano13
     - jpeg
     - libpng
+    - imath
+    - zlib
     - openexr
     - vigra
     - exiv2
@@ -74,7 +77,6 @@ requirements:
     # build system
     - enblend
     - pthreads-win32  # [win]
-    - ilmbase
   run:
     - boost-cpp
     - libglu  # [linux]
@@ -148,6 +150,8 @@ outputs:
         - libpano13
         - jpeg
         - libpng
+        - imath
+        - zlib
         - openexr
         - vigra
         - exiv2
@@ -161,7 +165,6 @@ outputs:
         # build system
         - enblend
         - pthreads-win32  # [win]
-        - ilmbase
         # Warning: With vanially conda, wxwidgets will not work on linux since they
         # internally code strings as UTF-16 strings on windows
         # conda-forge has patched conda: https://github.com/conda-forge/conda-feedstock/pull/117

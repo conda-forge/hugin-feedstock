@@ -1,5 +1,9 @@
 echo on
 
+del CMakeModules\FindPNG.cmake
+del CMakeModules\FindZLIB.cmake
+del CMakeModules\FindOpenEXR.cmake
+
 copy %RECIPE_DIR%\CMakeLists.txt .
 if errorlevel 1 exit 1
 
