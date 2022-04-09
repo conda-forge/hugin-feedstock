@@ -20,6 +20,8 @@ fftw:
 - '3'
 glew:
 - '2.1'
+imath:
+- '3.1'
 jpeg:
 - '9'
 libpng:
@@ -29,7 +31,7 @@ libtiff:
 macos_machine:
 - x86_64-apple-darwin13.4.0
 openexr:
-- '2.5'
+- '3.1'
 pango:
 - '1.50'
 perl:
@@ -54,6 +56,8 @@ pin_run_as_build:
     max_pin: x.x
   sqlite:
     max_pin: x
+  zlib:
+    max_pin: x.x
 python:
 - 3.9.* *_cpython
 sqlite:
@@ -63,3 +67,5 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+zlib:
+- '1.2'
