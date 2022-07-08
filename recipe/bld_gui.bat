@@ -29,6 +29,7 @@ if errorlevel 1 exit 1
 
 cmake -LAH -G Ninja                           ^
     -DCMAKE_BUILD_TYPE="Release"              ^
+    -DBUILD_HSI=OFF                           ^
     -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX%      ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX%   ^
     -DwxWidgets_ROOT_DIR=%LIBRARY_PREFIX%     ^

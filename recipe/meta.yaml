@@ -20,13 +20,13 @@ build:
 
 requirements:
   build:
+    - gettext
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
     - libgomp      # [linux]
     - make   # [unix]
     - ninja  # [win]
     - cmake
-    - swig
     - binutils  # [linux]
     - pkg-config  # [unix]
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
@@ -55,7 +55,6 @@ requirements:
   host:
     - xorg-libxfixes           # [linux]
     - xorg-libsm               # [linux]
-    - python
     - pango
     - pip
     - libtiff
@@ -80,8 +79,6 @@ requirements:
     - pthreads-win32  # [win]
   run:
     - boost-cpp
-    - libglu  # [linux]
-    - python
     - pthreads-win32  # [win]
     # not sure why run exports isn't working
     - exiftool
@@ -114,7 +111,6 @@ outputs:
         - make   # [unix]
         - ninja  # [win]
         - cmake
-        - swig
         - binutils  # [linux]
         - pkg-config  # [unix]
         - {{ cdt('mesa-libgl-devel') }}  # [linux]
@@ -145,7 +141,6 @@ outputs:
         - xorg-libxfixes           # [linux]
         - xorg-libsm               # [linux]
         - pango
-        - python
         - pip
         - libtiff
         - libpano13

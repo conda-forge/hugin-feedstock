@@ -22,6 +22,7 @@ cmake -LAH                              \
     -DCMAKE_PREFIX_PATH=${PREFIX}       \
     -DCMAKE_INSTALL_PREFIX=${PREFIX}    \
     -DwxWidgets_CONFIG_EXECUTABLE=${PREFIX}/bin/wx-config \
+    -DBUILD_HSI=OFF                     \
     -DENABLE_GUI=ON                     \
     ..
 
