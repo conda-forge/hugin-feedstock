@@ -26,7 +26,8 @@ cmake -LAH -G Ninja                           ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX%   ^
     -DwxWidgets_ROOT_DIR=%LIBRARY_PREFIX%     ^
     -DwxWidgets_INCLUDE_DIRS=%LIBRARY_INC%\wx ^
-    -DwxWidgets_LIBRARIES=%LIBRARY_INC%\lib    ^
+    -DwxWidgets_LIBRARIES=%LIBRARY_INC%\lib   ^
+    -DwxWidgets_CONFIGURATION=wxmsw32         ^
     -DENBLEND_DIR=%LIBRARY_PREFIX%            ^
     -DOPENEXR_BIN_DIR=%LIBRARY_BIN%           ^
     -DHUGIN_BUILDER="conda-forge"             ^
