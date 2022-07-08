@@ -6,7 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://iweb.dl.sourceforge.net/project/hugin/hugin/hugin-{{ version_major_minor }}/hugin-{{ version }}.tar.bz2
+  # url: https://iweb.dl.sourceforge.net/project/hugin/hugin/hugin-{{ version_major_minor }}/hugin-{{ version }}.tar.bz2
+  url: https://sourceforge.net/projects/hugin/files/hugin/hugin-{{ version_major_minor }}/hugin-{{ version }}.tar.bz2
   sha256: 047aea8a7fa47844b34ef27c19d3b697e84939dcb1fdbbeb2c204621b66eead9
   patches:
     - hugin-openexr3.patch
