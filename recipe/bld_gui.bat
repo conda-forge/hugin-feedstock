@@ -28,6 +28,7 @@ cd build
 if errorlevel 1 exit 1
 
 cmake -LAH -G Ninja                           ^
+    %CMAKE_ARGS%                              ^
     -DCMAKE_BUILD_TYPE="Release"              ^
     -DBUILD_HSI=OFF                           ^
     -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX%      ^

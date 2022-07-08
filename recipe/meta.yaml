@@ -16,13 +16,13 @@ source:
   #   - windows_unified_manifest.patch
 
 build:
-  number: 6
+  number: 7
 
 requirements:
   build:
-    - gettext
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
+    - gettext
     - libgomp      # [linux]
     - make   # [unix]
     - ninja  # [win]
@@ -70,7 +70,6 @@ requirements:
     - sqlite
     - lcms2
     - perl
-    # - libglu  # [linux]
     - boost-cpp
     - fftw
     # For some reason these are requried by the windows
@@ -83,7 +82,6 @@ requirements:
     # not sure why run exports isn't working
     - exiftool
     - enblend
-    - exiv2
     - xorg-libx11  # [linux]
     - xorg-libsm   # [linux]
 
@@ -107,6 +105,7 @@ outputs:
       build:
         - {{ compiler('cxx') }}
         - {{ compiler('c') }}
+        - gettext
         - libgomp      # [linux]
         - make   # [unix]
         - ninja  # [win]

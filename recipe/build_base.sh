@@ -16,6 +16,8 @@ mkdir build
 cd build
 
 cmake -LAH                              \
+    ${CMAKE_ARGS}                       \
+    -DMSGFMT_EXECUTABLE=${BUILD_PREFIX}/bin/msgfmt \
     -DCMAKE_BUILD_TYPE="Release"        \
     -DCMAKE_PREFIX_PATH=${PREFIX}       \
     -DCMAKE_INSTALL_PREFIX=${PREFIX}    \

@@ -18,7 +18,9 @@ mkdir build
 cd build
 
 cmake -LAH                              \
+    ${CMAKE_ARGS}                       \
     -DCMAKE_BUILD_TYPE="Release"        \
+    -DMSGFMT_EXECUTABLE=${BUILD_PREFIX}/bin/msgfmt \
     -DCMAKE_PREFIX_PATH=${PREFIX}       \
     -DCMAKE_INSTALL_PREFIX=${PREFIX}    \
     -DwxWidgets_CONFIG_EXECUTABLE=${PREFIX}/bin/wx-config \
