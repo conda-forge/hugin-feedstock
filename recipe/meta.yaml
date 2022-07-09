@@ -16,17 +16,17 @@ source:
   #   - windows_unified_manifest.patch
 
 build:
-  number: 6
+  number: 7
 
 requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
+    - gettext
     - libgomp      # [linux]
     - make   # [unix]
     - ninja  # [win]
     - cmake
-    - swig
     - binutils  # [linux]
     - pkg-config  # [unix]
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
@@ -55,7 +55,6 @@ requirements:
   host:
     - xorg-libxfixes           # [linux]
     - xorg-libsm               # [linux]
-    - python
     - pango
     - pip
     - libtiff
@@ -71,7 +70,6 @@ requirements:
     - sqlite
     - lcms2
     - perl
-    # - libglu  # [linux]
     - boost-cpp
     - fftw
     # For some reason these are requried by the windows
@@ -80,13 +78,10 @@ requirements:
     - pthreads-win32  # [win]
   run:
     - boost-cpp
-    - libglu  # [linux]
-    - python
     - pthreads-win32  # [win]
     # not sure why run exports isn't working
     - exiftool
     - enblend
-    - exiv2
     - xorg-libx11  # [linux]
     - xorg-libsm   # [linux]
 
@@ -110,11 +105,11 @@ outputs:
       build:
         - {{ compiler('cxx') }}
         - {{ compiler('c') }}
+        - gettext
         - libgomp      # [linux]
         - make   # [unix]
         - ninja  # [win]
         - cmake
-        - swig
         - binutils  # [linux]
         - pkg-config  # [unix]
         - {{ cdt('mesa-libgl-devel') }}  # [linux]
@@ -145,7 +140,6 @@ outputs:
         - xorg-libxfixes           # [linux]
         - xorg-libsm               # [linux]
         - pango
-        - python
         - pip
         - libtiff
         - libpano13
