@@ -16,7 +16,7 @@ source:
   #   - windows_unified_manifest.patch
 
 build:
-  number: 7
+  number: 8
 
 requirements:
   build:
@@ -97,8 +97,6 @@ outputs:
     script: build_base.sh  # [unix]
     script: bld_base.bat  # [win]
   - name: hugin
-    build:
-      skip: true  # [osx]
     script: build_gui.sh  # [unix]
     script: bld_gui.bat  # [win]
     requirements:
