@@ -1,0 +1,13 @@
+diff -ur hugin-2020.0.0_a/src/hugin1/stitch_project/CMakeLists.txt hugin-2020.0.0_b/src/hugin1/stitch_project/CMakeLists.txt
+--- hugin-2020.0.0_a/src/hugin1/stitch_project/CMakeLists.txt	2019-11-17 11:01:33.000000000 -0500
++++ hugin-2020.0.0_b/src/hugin1/stitch_project/CMakeLists.txt	2022-07-24 12:52:36.794995353 -0400
+@@ -4,7 +4,7 @@
+   add_executable(${PROGNAME} WIN32 hugin_stitch_project.cpp hugin_stitch_project_rc.rc ${WINDOWS_DPI_MANIFEST})
+ ELSEIF(APPLE)
+   set( PROGNAME HuginStitchProject )
+-  set( MACOSX_BUNDLE_ICON_FILE Hugin.icns )
++  set( MACOSX_BUNDLE_ICON_FILE ${CMAKE_SOURCE_DIR}/src/hugin1/stitch_project/Hugin.icns )
+ 
+   set( INFO_PLIST ${CMAKE_MODULE_PATH}/HuginBundleInfo.plist.in)
+   # disabled because stitch_project can't handle MacOpenFiles correctly
+

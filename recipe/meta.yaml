@@ -11,6 +11,7 @@ source:
   sha256: 047aea8a7fa47844b34ef27c19d3b697e84939dcb1fdbbeb2c204621b66eead9
   patches:
     - hugin-openexr3.patch
+    - osx_icns_location_fix.patch
   # Line endings frustrate me. So I've just vendored the files but documented the patch.
   #   - windows_unbundle.patch
   #   - windows_unified_manifest.patch
