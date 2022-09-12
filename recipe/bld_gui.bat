@@ -7,13 +7,6 @@ del CMakeModules\FindOpenEXR.cmake
 copy /Y %RECIPE_DIR%\CMakeLists.txt .
 if errorlevel 1 exit 1
 
-:REM I'm really not sure why i have to copy this file into the cmake directory
-:REM i should be able to copy it into the modules directory, but that doesn't seem to work
-:REM this new file seems to be included in the upcoming version of cmake 3.24.0
-:REM https://github.com/Kitware/CMake/commit/2a19231d618482755e9aae981a65680bb1ec1050
-copy /Y %RECIPE_DIR%\FindwxWidgets.cmake %BUILD_PREFIX%\Library\share\cmake-3.23\Modules\FindwxWidgets.cmake
-if errorlevel 1 exit 1
-
 copy /Y %RECIPE_DIR%\hugin1CMakeLists.txt src\hugin1\CMakeLists.txt
 if errorlevel 1 exit 1
 
