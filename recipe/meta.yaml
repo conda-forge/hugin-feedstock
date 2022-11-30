@@ -16,7 +16,7 @@ source:
   #   - windows_unified_manifest.patch
 
 build:
-  number: 8
+  number: 9
 
 requirements:
   build:
@@ -67,7 +67,7 @@ requirements:
     - vigra
     - exiv2
     - glew
-    - sqlite
+    - libsqlite
     - lcms2
     - perl
     - boost-cpp
@@ -151,7 +151,7 @@ outputs:
         - vigra
         - exiv2
         - glew
-        - sqlite
+        - libsqlite
         - lcms2
         - perl
         - boost-cpp
