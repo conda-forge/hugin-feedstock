@@ -16,7 +16,7 @@ source:
   #   - windows_unified_manifest.patch
 
 build:
-  number: 8
+  number: 9
 
 requirements:
   build:
