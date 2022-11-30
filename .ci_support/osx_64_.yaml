@@ -26,6 +26,8 @@ jpeg:
 - '9'
 libpng:
 - '1.6'
+libsqlite:
+- '3'
 libtiff:
 - '4'
 macos_machine:
@@ -39,24 +41,6 @@ perl:
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
-  fftw:
-    max_pin: x
-  glew:
-    max_pin: x.x
-  jpeg:
-    max_pin: x
-  libpng:
-    max_pin: x.x
-  libtiff:
-    max_pin: x
-  pango:
-    max_pin: x.x
-  sqlite:
-    max_pin: x
-  zlib:
-    max_pin: x.x
-sqlite:
-- '3'
 target_platform:
 - osx-64
 zip_keys:
