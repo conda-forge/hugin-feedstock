@@ -67,7 +67,7 @@ requirements:
     - vigra
     - exiv2
     - glew
-    - sqlite
+    - libsqlite
     - lcms2
     - perl
     - boost-cpp
@@ -151,7 +151,7 @@ outputs:
         - vigra
         - exiv2
         - glew
-        - sqlite
+        - libsqlite
         - lcms2
         - perl
         - boost-cpp
