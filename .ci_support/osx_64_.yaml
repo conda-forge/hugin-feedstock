@@ -29,7 +29,7 @@ libpng:
 libsqlite:
 - '3'
 libtiff:
-- '4'
+- '4.4'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 openexr:
