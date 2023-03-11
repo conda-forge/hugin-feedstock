@@ -1,11 +1,11 @@
-About hugin-base
-================
+About hugin-base-feedstock
+==========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/hugin-feedstock/blob/main/LICENSE.txt)
 
 Home: http://hugin.sourceforge.net/
 
 Package license: GPL-2.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/hugin-feedstock/blob/main/LICENSE.txt)
 
 Summary: Panorama photo stitcher
 
