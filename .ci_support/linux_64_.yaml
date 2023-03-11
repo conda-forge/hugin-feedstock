@@ -24,8 +24,8 @@ glew:
 - '2.1'
 imath:
 - '3.1'
-jpeg:
-- '9'
+libjpeg_turbo:
+- 2.1.5
 libpng:
 - '1.6'
 libsqlite:
