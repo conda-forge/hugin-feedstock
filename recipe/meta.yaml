@@ -16,7 +16,7 @@ source:
   #   - windows_unified_manifest.patch
 
 build:
-  number: 4
+  number: 5
 
 requirements:
   build:
