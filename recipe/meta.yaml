@@ -54,6 +54,7 @@ requirements:
     - perl
     - boost-cpp
     - fftw
+    - libglu           # [linux]
     # For some reason these are requried by the windows
     # build system
     - enblend
@@ -120,6 +121,7 @@ outputs:
         - perl
         - boost-cpp
         - fftw
+        - libglu           # [linux]
         # For some reason these are requried by the windows
         # build system
         - enblend
