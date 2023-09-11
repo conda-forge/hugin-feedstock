@@ -1,0 +1,24 @@
+diff -ur a/src/CMakeLists.txt b/src/CMakeLists.txt
+--- a/src/CMakeLists.txt	2022-06-24 08:56:12.000000000 -0400
++++ b/src/CMakeLists.txt	2023-09-11 06:53:03.942050276 -0400
+@@ -2,8 +2,7 @@
+ # define common sets of libraries, used by different subdirectories
+ SET(common_libs huginbase ${PANO_LIBRARIES} huginlevmar ${GLEW_LIBRARIES})
+ IF (MSVC)
+-  SET(common_libs hugingetopt ${common_libs})
+-  include_directories( ${CMAKE_SOURCE_DIR}/src/foreign/getopt/include )
++  SET(common_libs getopt ${common_libs})
+ ENDIF()
+ IF(NOT HAVE_STD_FILESYSTEM)
+   SET(common_libs ${common_libs} ${Boost_LIBRARIES})
+diff -ur a/src/foreign/CMakeLists.txt b/src/foreign/CMakeLists.txt
+--- a/src/foreign/CMakeLists.txt	2014-10-12 08:12:02.000000000 -0400
++++ b/src/foreign/CMakeLists.txt	2023-09-11 06:52:23.436839922 -0400
+@@ -1,7 +1,2 @@
+ 
+ add_subdirectory(levmar)
+-
+-IF (WIN32 AND NOT MINGW)
+-  add_subdirectory(getopt)
+-ENDIF (WIN32 AND NOT MINGW)
+-

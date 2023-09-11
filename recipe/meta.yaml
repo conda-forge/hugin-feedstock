@@ -14,9 +14,10 @@ source:
   # Line endings frustrate me. So I've just vendored the files but documented the patch.
   #   - windows_unbundle.patch
   #   - windows_unified_manifest.patch
+    - link_to_shared_getopt_win.patch
 
 build:
-  number: 5
+  number: 6
 
 requirements:
   build:
@@ -31,27 +32,8 @@ requirements:
     - pkg-config  # [unix]
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
     - {{ cdt('mesa-dri-drivers') }}  # [linux]
-    - {{ cdt('libselinux') }}  # [linux]
-    - {{ cdt('libxdamage') }}  # [linux]
-    - {{ cdt('libxxf86vm') }}  # [linux]
-    - {{ cdt('libxext') }}     # [linux]
-    # Just taken from wxWidgets
-    - {{ cdt('libice-devel') }}  # [linux]
-    - {{ cdt('libsm-devel') }}  # [linux]
-    - {{ cdt('libx11-devel') }}  # [linux]
-    - {{ cdt('libxcomposite-devel') }}  # [linux]
-    - {{ cdt('libxcursor-devel') }}  # [linux]
-    - {{ cdt('libxdamage-devel') }}  # [linux]
-    - {{ cdt('libxext-devel') }}  # [linux]
-    - {{ cdt('libxi-devel') }}  # [linux]
-    - {{ cdt('libxinerama-devel') }}  # [linux]
-    - {{ cdt('libxfixes-devel') }}  # [linux]
-    - {{ cdt('libxrandr-devel') }}  # [linux]
-    - {{ cdt('libxrender-devel') }}  # [linux]
-    - {{ cdt('libxtst-devel') }}  # [linux]
     - {{ cdt('mesa-libEGL-devel') }}  # [linux]
     - {{ cdt('mesa-libGL-devel') }}  # [linux]
-    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
   host:
     - xorg-libxfixes           # [linux]
     - xorg-libsm               # [linux]
@@ -72,10 +54,12 @@ requirements:
     - perl
     - boost-cpp
     - fftw
+    - libglu           # [linux]
     # For some reason these are requried by the windows
     # build system
     - enblend
     - pthreads-win32  # [win]
+    - getopt-win32    # [win]
   run:
     - boost-cpp
     - pthreads-win32  # [win]
@@ -114,27 +98,8 @@ outputs:
         - pkg-config  # [unix]
         - {{ cdt('mesa-libgl-devel') }}  # [linux]
         - {{ cdt('mesa-dri-drivers') }}  # [linux]
-        - {{ cdt('libselinux') }}  # [linux]
-        - {{ cdt('libxdamage') }}  # [linux]
-        - {{ cdt('libxxf86vm') }}  # [linux]
-        - {{ cdt('libxext') }}     # [linux]
-        # Just taken from wxWidgets
-        - {{ cdt('libice-devel') }}  # [linux]
-        - {{ cdt('libsm-devel') }}  # [linux]
-        - {{ cdt('libx11-devel') }}  # [linux]
-        - {{ cdt('libxcomposite-devel') }}  # [linux]
-        - {{ cdt('libxcursor-devel') }}  # [linux]
-        - {{ cdt('libxdamage-devel') }}  # [linux]
-        - {{ cdt('libxext-devel') }}  # [linux]
-        - {{ cdt('libxi-devel') }}  # [linux]
-        - {{ cdt('libxinerama-devel') }}  # [linux]
-        - {{ cdt('libxfixes-devel') }}  # [linux]
-        - {{ cdt('libxrandr-devel') }}  # [linux]
-        - {{ cdt('libxrender-devel') }}  # [linux]
-        - {{ cdt('libxtst-devel') }}  # [linux]
         - {{ cdt('mesa-libEGL-devel') }}  # [linux]
         - {{ cdt('mesa-libGL-devel') }}  # [linux]
-        - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
       host:
         - {{ pin_subpackage('hugin-base', exact=True) }}
         - xorg-libxfixes           # [linux]
@@ -156,10 +121,12 @@ outputs:
         - perl
         - boost-cpp
         - fftw
+        - libglu           # [linux]
         # For some reason these are requried by the windows
         # build system
         - enblend
         - pthreads-win32  # [win]
+        - getopt-win32    # [win]
         # Warning: With vanially conda, wxwidgets will not work on linux since they
         # internally code strings as UTF-16 strings on windows
         # conda-forge has patched conda: https://github.com/conda-forge/conda-feedstock/pull/117
