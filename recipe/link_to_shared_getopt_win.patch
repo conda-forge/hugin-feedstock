@@ -1,0 +1,11 @@
+diff -ur a/src/tools/CMakeLists.txt b/src/tools/CMakeLists.txt
+--- a/src/tools/CMakeLists.txt	2022-10-03 06:13:16.000000000 -0400
++++ b/src/tools/CMakeLists.txt	2023-09-11 06:20:14.839478877 -0400
+@@ -3,6 +3,7 @@
+ target_link_libraries(fulla ${common_libs} ${image_libs})
+ # for expanding wildcard with MSVC
+ if(MSVC)
++  target_link_libraries(fulla getopt)
+   set_target_properties(fulla PROPERTIES LINK_FLAGS "setargv.obj")
+ endif(MSVC)
+ 

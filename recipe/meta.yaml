@@ -14,6 +14,7 @@ source:
   # Line endings frustrate me. So I've just vendored the files but documented the patch.
   #   - windows_unbundle.patch
   #   - windows_unified_manifest.patch
+    - link_to_shared_getopt_win.patch
 
 build:
   number: 6
@@ -76,6 +77,7 @@ requirements:
     # build system
     - enblend
     - pthreads-win32  # [win]
+    - getopt-win32    # [win]
   run:
     - boost-cpp
     - pthreads-win32  # [win]
@@ -160,6 +162,7 @@ outputs:
         # build system
         - enblend
         - pthreads-win32  # [win]
+        - getopt-win32    # [win]
         # Warning: With vanially conda, wxwidgets will not work on linux since they
         # internally code strings as UTF-16 strings on windows
         # conda-forge has patched conda: https://github.com/conda-forge/conda-feedstock/pull/117
