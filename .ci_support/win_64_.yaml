@@ -23,7 +23,7 @@ libpng:
 libsqlite:
 - '3'
 libtiff:
-- '4.5'
+- '4.6'
 openexr:
 - '3.2'
 pango:
