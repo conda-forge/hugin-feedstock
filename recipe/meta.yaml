@@ -79,9 +79,12 @@ outputs:
   - name: hugin-base
     script: build_base.sh  # [unix]
     script: bld_base.bat  # [win]
+
   - name: hugin
     build:
       skip: true  # [osx]
+      ignore_run_exports_from:
+        - libboost-devel
     script: build_gui.sh  # [unix]
     script: bld_gui.bat  # [win]
     requirements:
@@ -118,6 +121,8 @@ outputs:
         - libsqlite
         - lcms2
         - perl
+        # build complains on windows if we don't have the libs, as it's in the link interface of hugin-base;
+        # no selector because we also ignore run-export everywhere
         - libboost-devel
         - fftw
         - libglu           # [linux]
