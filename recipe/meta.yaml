@@ -17,7 +17,7 @@ source:
     - link_to_shared_getopt_win.patch
 
 build:
-  number: 7
+  number: 8
 
 requirements:
   build:
@@ -52,7 +52,7 @@ requirements:
     - libsqlite
     - lcms2
     - perl
-    - boost-cpp
+    - libboost-devel
     - fftw
     - libglu           # [linux]
     # For some reason these are requried by the windows
@@ -61,7 +61,6 @@ requirements:
     - pthreads-win32  # [win]
     - getopt-win32    # [win]
   run:
-    - boost-cpp
     - pthreads-win32  # [win]
     # not sure why run exports isn't working
     - exiftool
@@ -119,7 +118,7 @@ outputs:
         - libsqlite
         - lcms2
         - perl
-        - boost-cpp
+        - libboost-headers
         - fftw
         - libglu           # [linux]
         # For some reason these are requried by the windows
