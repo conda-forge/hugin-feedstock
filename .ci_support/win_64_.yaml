@@ -1,5 +1,3 @@
-boost_cpp:
-- 1.78.0
 c_compiler:
 - vs2019
 channel_sources:
@@ -16,6 +14,8 @@ glew:
 - '2.1'
 imath:
 - 3.1.9
+libboost_devel:
+- '1.82'
 libjpeg_turbo:
 - 2.1.5
 libpng:
@@ -30,9 +30,6 @@ pango:
 - '1.50'
 perl:
 - 5.32.1
-pin_run_as_build:
-  boost-cpp:
-    max_pin: x.x.x
 target_platform:
 - win-64
 wxwidgets:
