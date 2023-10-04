@@ -118,7 +118,7 @@ outputs:
         - libsqlite
         - lcms2
         - perl
-        - libboost-headers
+        - libboost-devel
         - fftw
         - libglu           # [linux]
         # For some reason these are requried by the windows
