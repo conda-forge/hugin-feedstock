@@ -1,0 +1,14 @@
+--- a/src/foreign/levmar/compiler.h	2010-12-02 05:30:11.000000000 -0500
++++ b/src/foreign/levmar/compiler.h	2023-11-01 12:18:56.678403176 -0400
+@@ -33,9 +33,9 @@
+ #ifdef _MSC_VER
+ #define LM_FINITE _finite // MSVC
+ #elif defined(__ICC) || defined(__INTEL_COMPILER) || defined(__GNUC__)
+-#define LM_FINITE finite // ICC, GCC
++#define LM_FINITE isfinite // ICC, GCC
+ #else
+-#define LM_FINITE finite // other than MSVC, ICC, GCC, let's hope this will work
++#define LM_FINITE isfinite // other than MSVC, ICC, GCC, let's hope this will work
+ #endif
+ 
+ #ifdef _MSC_VER
