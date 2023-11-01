@@ -17,7 +17,7 @@ source:
     - link_to_shared_getopt_win.patch
 
 build:
-  number: 8
+  number: 9
 
 requirements:
   build:
