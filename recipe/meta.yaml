@@ -1,4 +1,4 @@
-{% set version = "2022.0.0" %}
+{% set version = "2023.0.0" %}
 {% set version_major_minor = ".".join(version.split('.')[:2]) %}
 
 package:
@@ -8,7 +8,7 @@ package:
 source:
   # url: https://iweb.dl.sourceforge.net/project/hugin/hugin/hugin-{{ version_major_minor }}/hugin-{{ version }}.tar.bz2
   url: https://sourceforge.net/projects/hugin/files/hugin/hugin-{{ version_major_minor }}/hugin-{{ version }}.tar.bz2
-  sha256: 97c8562a0ba9a743e0b955a43dfde048b1c60cd9e5f2ee2b69de1a81646e05a7
+  sha256: 04a39fccc6017e0544c639bd22309472c574d35b3455cbade1fc3870e631632b
   patches:
     - hugin-openexr3.patch
   # Line endings frustrate me. So I've just vendored the files but documented the patch.
@@ -19,7 +19,7 @@ source:
     - isfinite.patch
 
 build:
-  number: 9
+  number: 0
 
 requirements:
   build:
