@@ -19,7 +19,7 @@ source:
     - isfinite.patch
 
 build:
-  number: 10
+  number: 11
 
 requirements:
   build:
