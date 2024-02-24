@@ -1,0 +1,47 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '11.0'
+c_compiler:
+- clang
+c_compiler_version:
+- '16'
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- clangxx
+cxx_compiler_version:
+- '16'
+exiv2:
+- '0.28'
+fftw:
+- '3'
+glew:
+- '2.1'
+imath:
+- 3.1.10
+libboost_devel:
+- '1.82'
+libjpeg_turbo:
+- '3'
+libpng:
+- '1.6'
+libsqlite:
+- '3'
+libtiff:
+- '4.6'
+macos_machine:
+- arm64-apple-darwin20.0.0
+openexr:
+- '3.2'
+pango:
+- '1.50'
+perl:
+- 5.32.1
+target_platform:
+- osx-arm64
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
+zlib:
+- '1.2'
