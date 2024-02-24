@@ -181,16 +181,10 @@ ENDIF(WIN32)
 #  finding the wxWidgets distributions of those packages (Win32 only).
 IF(ENABLE_GUI)
 IF(WIN32)
-  FIND_PACKAGE(wxWidgets REQUIRED base core)
-  FIND_PACKAGE(wxWidgets REQUIRED base core aui)
-  FIND_PACKAGE(wxWidgets REQUIRED base core aui xrc)
-  FIND_PACKAGE(wxWidgets REQUIRED base core aui xrc html xml)
-  FIND_PACKAGE(wxWidgets REQUIRED base core aui xrc html xml adv)
-  FIND_PACKAGE(wxWidgets REQUIRED base core aui xrc html xml adv gl)
-  FIND_PACKAGE(wxWidgets REQUIRED base core aui xrc html xml adv gl qa)
+  FIND_PACKAGE(wxWidgets REQUIRED base core aui xrc html xml adv gl qa propgrid)
 ELSE()
 # Unix needs also wxWidgets net library
-  FIND_PACKAGE(wxWidgets REQUIRED base core aui xrc html xml adv gl net qa)
+  FIND_PACKAGE(wxWidgets REQUIRED base core aui xrc html xml adv gl net qa propgrid)
 ENDIF()
 
 # hugin requires wxwidgets 3.0 or above
