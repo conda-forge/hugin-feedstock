@@ -1,5 +1,7 @@
 c_compiler:
 - vs2019
+c_stdlib:
+- vs
 channel_sources:
 - conda-forge
 channel_targets:
@@ -14,8 +16,10 @@ glew:
 - '2.1'
 imath:
 - 3.1.11
+lcms2:
+- '2'
 libboost_devel:
-- '1.82'
+- '1.84'
 libjpeg_turbo:
 - '3'
 libpng:
@@ -24,6 +28,8 @@ libsqlite:
 - '3'
 libtiff:
 - '4.6'
+libvigra:
+- '1.11'
 openexr:
 - '3.2'
 pango:
@@ -35,4 +41,4 @@ target_platform:
 wxwidgets:
 - '3.2'
 zlib:
-- '1.2'
+- '1'
