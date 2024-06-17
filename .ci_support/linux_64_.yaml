@@ -22,8 +22,10 @@ glew:
 - '2.1'
 imath:
 - 3.1.11
+lcms2:
+- '2'
 libboost_devel:
-- '1.82'
+- '1.84'
 libjpeg_turbo:
 - '3'
 libpng:
@@ -40,10 +42,12 @@ perl:
 - 5.32.1
 target_platform:
 - linux-64
+vigra:
+- '1.11'
 wxwidgets:
 - '3.2'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
 zlib:
-- '1.2'
+- '1'
