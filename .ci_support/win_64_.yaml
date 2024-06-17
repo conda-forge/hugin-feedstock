@@ -1,5 +1,7 @@
 c_compiler:
 - vs2019
+c_stdlib:
+- vs
 channel_sources:
 - conda-forge
 channel_targets:
@@ -26,6 +28,8 @@ libsqlite:
 - '3'
 libtiff:
 - '4.6'
+libvigra:
+- '1.11'
 openexr:
 - '3.2'
 pango:
@@ -34,8 +38,6 @@ perl:
 - 5.32.1
 target_platform:
 - win-64
-vigra:
-- '1.11'
 wxwidgets:
 - '3.2'
 zlib:
