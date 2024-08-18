@@ -29,7 +29,7 @@ imath:
 lcms2:
 - '2'
 libboost_devel:
-- '1.84'
+- '1.86'
 libjpeg_turbo:
 - '3'
 libpng:
@@ -45,7 +45,7 @@ macos_machine:
 openexr:
 - '3.2'
 pango:
-- '1.50'
+- '1'
 perl:
 - 5.32.1
 target_platform:
