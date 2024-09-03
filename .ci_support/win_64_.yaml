@@ -29,7 +29,7 @@ libsqlite:
 libtiff:
 - '4.6'
 libvigra:
-- '1.11'
+- '1.12'
 openexr:
 - '3.2'
 pango:
