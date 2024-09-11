@@ -23,7 +23,7 @@ source:
     - fix_deprecated_boost_copy_option.diff
 
 build:
-  number: 4
+  number: 5
 
 requirements:
   build:
@@ -37,13 +37,11 @@ requirements:
     - cmake
     - binutils  # [linux]
     - pkg-config  # [unix]
-    - {{ cdt('mesa-libgl-devel') }}  # [linux]
-    - {{ cdt('mesa-dri-drivers') }}  # [linux]
-    - {{ cdt('mesa-libEGL-devel') }}  # [linux]
-    - {{ cdt('mesa-libGL-devel') }}  # [linux]
   host:
     - xorg-libxfixes           # [linux]
     - xorg-libsm               # [linux]
+    - libgl-devel              # [linux]
+    - libegl-devel             # [linux]
     - pango
     - pip
     - libtiff
@@ -106,14 +104,12 @@ outputs:
         - cmake
         - binutils  # [linux]
         - pkg-config  # [unix]
-        - {{ cdt('mesa-libgl-devel') }}  # [linux]
-        - {{ cdt('mesa-dri-drivers') }}  # [linux]
-        - {{ cdt('mesa-libEGL-devel') }}  # [linux]
-        - {{ cdt('mesa-libGL-devel') }}  # [linux]
       host:
         - {{ pin_subpackage('hugin-base', exact=True) }}
         - xorg-libxfixes           # [linux]
         - xorg-libsm               # [linux]
+        - libgl-devel              # [linux]
+        - libegl-devel             # [linux]
         - pango
         - pip
         - libtiff
