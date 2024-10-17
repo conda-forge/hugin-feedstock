@@ -30,12 +30,12 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
     - gettext
-    - libgomp      # [linux]
-    - make   # [unix]
-    - ninja  # [win]
     - cmake
-    - binutils  # [linux]
-    - pkg-config  # [unix]
+    - libgomp      # [linux]
+    - make         # [unix]
+    - ninja        # [win]
+    - binutils     # [linux]
+    - pkg-confi g  # [unix]
   host:
     - xorg-libxfixes           # [linux]
     - xorg-libsm               # [linux]
