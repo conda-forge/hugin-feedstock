@@ -35,7 +35,7 @@ requirements:
     - make         # [unix]
     - ninja        # [win]
     - binutils     # [linux]
-    - pkg-confi g  # [unix]
+    - pkg-config   # [unix]
   host:
     - xorg-libxfixes           # [linux]
     - xorg-libsm               # [linux]
