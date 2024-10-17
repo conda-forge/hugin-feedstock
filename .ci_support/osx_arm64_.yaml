@@ -43,7 +43,7 @@ libvigra:
 macos_machine:
 - arm64-apple-darwin20.0.0
 openexr:
-- '3.2'
+- '3.3'
 pango:
 - '1'
 perl:
