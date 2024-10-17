@@ -11,9 +11,9 @@ source:
   sha256: 04a39fccc6017e0544c639bd22309472c574d35b3455cbade1fc3870e631632b
   patches:
     - hugin-openexr3.patch
-  # Line endings frustrate me. So I've just vendored the files but documented the patch.
-  #   - windows_unbundle.patch
-  #   - windows_unified_manifest.patch
+    # Line endings frustrate me. So I've just vendored the files but documented the patch.
+    # - windows_unbundle.patch
+    # - windows_unified_manifest.patch
     - link_to_shared_getopt_win.patch
     # finite keyword deprecated in C99
     - isfinite.patch
