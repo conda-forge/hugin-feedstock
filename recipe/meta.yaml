@@ -24,6 +24,8 @@ source:
     - patch_for_modern_throw.patch
     # https://sourceforge.net/p/hugin/hugin/ci/109a3e0c5019dc6cc341d4222c0a919339975afe/
     - fix_deprecated_unary_function.patch
+    # https://sourceforge.net/p/hugin/hugin/ci/f553eed50964e4ae5a9bef357348ad0accdcb87b/
+    - fixes_for_cpp11.patch
 
 build:
   number: 6
