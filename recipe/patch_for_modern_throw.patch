@@ -1,0 +1,45 @@
+# HG changeset patch
+# User tmodes
+# Date 1699691229 -3600
+#      Sat Nov 11 09:27:09 2023 +0100
+# Node ID 2353340335e10a5c769ca2f7d3346658eb5e46d8
+# Parent  f553eed50964e4ae5a9bef357348ad0accdcb87b
+Fixes deprecated throw exception specification in C++11
+
+diff -r f553eed50964 -r 2353340335e1 src/deghosting/deghosting.cpp
+--- a/src/deghosting/deghosting.cpp	Sat Nov 11 09:26:23 2023 +0100
++++ b/src/deghosting/deghosting.cpp	Sat Nov 11 09:27:09 2023 +0100
+@@ -22,7 +22,7 @@
+ 
+ namespace deghosting {
+     
+-    void Deghosting::loadImages(std::vector<std::string>& newInputFiles) THROWNOIMAGES
++    void Deghosting::loadImages(std::vector<std::string>& newInputFiles)
+     {
+         if (newInputFiles.empty())
+             throw NoImages();
+diff -r f553eed50964 -r 2353340335e1 src/deghosting/deghosting.h
+--- a/src/deghosting/deghosting.h	Sat Nov 11 09:26:23 2023 +0100
++++ b/src/deghosting/deghosting.h	Sat Nov 11 09:27:09 2023 +0100
+@@ -30,12 +30,6 @@
+ #include <vigra/stdimage.hxx>
+ #include <vigra/imageinfo.hxx>
+ 
+-#ifdef _MSC_VER
+-#define THROWNOIMAGES
+-#else
+-#define THROWNOIMAGES throw(NoImages)
+-#endif
+-
+ namespace deghosting {
+     
+     /** exception called when there are no input images
+@@ -74,7 +68,7 @@
+         /** load images for processing
+          * @param inputFiles images to be processed
+          */
+-        virtual void loadImages(std::vector<std::string>& inputFiles) THROWNOIMAGES;
++        virtual void loadImages(std::vector<std::string>& inputFiles);
+ 
+         /** set advanced flags
+          * Allows to change behavior of used algorithm
