@@ -22,6 +22,8 @@ source:
     - fix_deprecated_boost_copy_option.diff
     # Backport of https://sourceforge.net/p/hugin/hugin/ci/2353340335e10a5c769ca2f7d3346658eb5e46d8/
     - patch_for_modern_throw.patch
+    # https://sourceforge.net/p/hugin/hugin/ci/109a3e0c5019dc6cc341d4222c0a919339975afe/
+    - fix_deprecated_unary_function.patch
 
 build:
   number: 6
