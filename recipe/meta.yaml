@@ -26,6 +26,9 @@ source:
     - fix_deprecated_unary_function.patch
     # https://sourceforge.net/p/hugin/hugin/ci/f553eed50964e4ae5a9bef357348ad0accdcb87b/
     - fixes_for_cpp11.patch
+    # My own patch following 
+    # https://github.com/flann-lib/flann/commit/be80cefa69b314a3d9e1ab971715e84145863ebb#diff-6c163d1ce608acc3d5252db5576dd1673326ec02dbaae54b695a7b19c9223a0dR271
+    - avoid_random_shuffler_for_cpp17.patch
 
 build:
   number: 6
