@@ -1,6 +1,6 @@
 diff -r 7b28c3f883f9 src/foreign/flann/algorithms/kdtree_index.h
 --- a/src/foreign/flann/algorithms/kdtree_index.h	Fri Oct 11 08:42:26 2024 +0200
-+++ b/src/foreign/flann/algorithms/kdtree_index.h	Thu Oct 17 16:40:25 2024 -0400
++++ b/src/foreign/flann/algorithms/kdtree_index.h	Thu Oct 17 16:55:53 2024 -0400
 @@ -35,6 +35,7 @@
  #include <map>
  #include <cassert>
@@ -16,13 +16,13 @@ diff -r 7b28c3f883f9 src/foreign/flann/algorithms/kdtree_index.h
 -            std::random_shuffle(vind_.begin(), vind_.end());
 +            std::random_device rd;
 +            std::mt19937 g(rd());
-+            std::shuffle(ind.begin(), ind.end(), g);
++            std::shuffle(vind_.begin(), vind_.end(), g);
              tree_roots_[i] = divideTree(&vind_[0], int(size_) );
          }
      }
 diff -r 7b28c3f883f9 src/foreign/flann/util/lsh_table.h
 --- a/src/foreign/flann/util/lsh_table.h	Fri Oct 11 08:42:26 2024 +0200
-+++ b/src/foreign/flann/util/lsh_table.h	Thu Oct 17 16:40:25 2024 -0400
++++ b/src/foreign/flann/util/lsh_table.h	Thu Oct 17 16:55:53 2024 -0400
 @@ -47,6 +47,7 @@
  #endif
  #include <math.h>
@@ -38,13 +38,13 @@ diff -r 7b28c3f883f9 src/foreign/flann/util/lsh_table.h
 -    std::random_shuffle(indices.begin(), indices.end());
 +    std::random_device rd;
 +    std::mt19937 g(rd());
-+    std::shuffle(ind.begin(), ind.end(), g);
++    std::shuffle(indices.begin(), indices.end(), g);
  
      // Generate a random set of order of subsignature_size_ bits
      for (unsigned int i = 0; i < key_size_; ++i) {
 diff -r 7b28c3f883f9 src/foreign/flann/util/random.h
 --- a/src/foreign/flann/util/random.h	Fri Oct 11 08:42:26 2024 +0200
-+++ b/src/foreign/flann/util/random.h	Thu Oct 17 16:40:25 2024 -0400
++++ b/src/foreign/flann/util/random.h	Thu Oct 17 16:55:53 2024 -0400
 @@ -34,6 +34,7 @@
  #include <algorithm>
  #include <cstdlib>
