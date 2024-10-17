@@ -23,7 +23,7 @@ source:
     - fix_deprecated_boost_copy_option.diff
 
 build:
-  number: 5
+  number: 6
 
 requirements:
   build:
@@ -44,6 +44,7 @@ requirements:
     - libegl-devel             # [linux]
     - pango
     - pip
+    - setuptools
     - libtiff
     - libpano13
     - libjpeg-turbo
