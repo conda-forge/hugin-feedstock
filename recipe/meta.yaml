@@ -17,9 +17,8 @@ source:
     - link_to_shared_getopt_win.patch
     # finite keyword deprecated in C99
     - isfinite.patch
-    # Backport of
+    # Backport for boost 1.86
     # https://sourceforge.net/p/hugin/hugin/ci/4d081490b48aaff820cee7601b8624b37b652c06/
-    # for boost 1.86
     - fix_deprecated_boost_copy_option.diff
 
 build:
