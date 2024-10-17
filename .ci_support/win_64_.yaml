@@ -27,7 +27,7 @@ libpng:
 libsqlite:
 - '3'
 libtiff:
-- '4.6'
+- '4.7'
 libvigra:
 - '1.12'
 openexr:
