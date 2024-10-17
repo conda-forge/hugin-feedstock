@@ -1,0 +1,20 @@
+# HG changeset patch
+# User tmodes
+# Date 1699691158 -3600
+#      Sat Nov 11 09:25:58 2023 +0100
+# Node ID 109a3e0c5019dc6cc341d4222c0a919339975afe
+# Parent  3231467869b29e4cd14bee5ac154ed820117e3ae
+Fixes deprecated std::unary_function in C++11
+
+diff -r 3231467869b2 -r 109a3e0c5019 src/hugin_base/panodata/PanoramaVariable.h
+--- a/src/hugin_base/panodata/PanoramaVariable.h	Sat Nov 11 08:16:40 2023 +0100
++++ b/src/hugin_base/panodata/PanoramaVariable.h	Sat Nov 11 09:25:58 2023 +0100
+@@ -157,7 +157,7 @@
+ #ifndef SWIG
+ /* this gave me trouble in hsi, currently deactivated
+  * TODO: find out how it can be made to work */
+-struct PrintVar : public std::unary_function<Variable, void>
++struct PrintVar
+ {
+     explicit PrintVar(std::ostream & o)
+         : os(o)

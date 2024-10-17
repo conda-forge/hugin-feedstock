@@ -11,19 +11,27 @@ source:
   sha256: 04a39fccc6017e0544c639bd22309472c574d35b3455cbade1fc3870e631632b
   patches:
     - hugin-openexr3.patch
-  # Line endings frustrate me. So I've just vendored the files but documented the patch.
-  #   - windows_unbundle.patch
-  #   - windows_unified_manifest.patch
+    # Line endings frustrate me. So I've just vendored the files but documented the patch.
+    # - windows_unbundle.patch
+    # - windows_unified_manifest.patch
     - link_to_shared_getopt_win.patch
     # finite keyword deprecated in C99
     - isfinite.patch
-    # Backport of
+    # Backport for boost 1.86
     # https://sourceforge.net/p/hugin/hugin/ci/4d081490b48aaff820cee7601b8624b37b652c06/
-    # for boost 1.86
     - fix_deprecated_boost_copy_option.diff
+    # Backport of https://sourceforge.net/p/hugin/hugin/ci/2353340335e10a5c769ca2f7d3346658eb5e46d8/
+    - patch_for_modern_throw.patch
+    # https://sourceforge.net/p/hugin/hugin/ci/109a3e0c5019dc6cc341d4222c0a919339975afe/
+    - fix_deprecated_unary_function.patch
+    # https://sourceforge.net/p/hugin/hugin/ci/f553eed50964e4ae5a9bef357348ad0accdcb87b/
+    - fixes_for_cpp11.patch
+    # My own patch following 
+    # https://github.com/flann-lib/flann/commit/be80cefa69b314a3d9e1ab971715e84145863ebb#diff-6c163d1ce608acc3d5252db5576dd1673326ec02dbaae54b695a7b19c9223a0dR271
+    - avoid_random_shuffler_for_cpp17.patch
 
 build:
-  number: 5
+  number: 6
 
 requirements:
   build:
@@ -31,12 +39,12 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
     - gettext
-    - libgomp      # [linux]
-    - make   # [unix]
-    - ninja  # [win]
     - cmake
-    - binutils  # [linux]
-    - pkg-config  # [unix]
+    - libgomp      # [linux]
+    - make         # [unix]
+    - ninja        # [win]
+    - binutils     # [linux]
+    - pkg-config   # [unix]
   host:
     - xorg-libxfixes           # [linux]
     - xorg-libsm               # [linux]
@@ -44,6 +52,7 @@ requirements:
     - libegl-devel             # [linux]
     - pango
     - pip
+    - setuptools
     - libtiff
     - libpano13
     - libjpeg-turbo
