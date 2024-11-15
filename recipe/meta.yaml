@@ -1,4 +1,4 @@
-{% set version = "2023.0.0" %}
+{% set version = "2024.0.0" %}
 {% set version_major_minor = ".".join(version.split('.')[:2]) %}
 
 package:
@@ -8,7 +8,7 @@ package:
 source:
   # url: https://iweb.dl.sourceforge.net/project/hugin/hugin/hugin-{{ version_major_minor }}/hugin-{{ version }}.tar.bz2
   url: https://sourceforge.net/projects/hugin/files/hugin/hugin-{{ version_major_minor }}/hugin-{{ version }}.tar.bz2
-  sha256: 04a39fccc6017e0544c639bd22309472c574d35b3455cbade1fc3870e631632b
+  sha256: d156fd109587da60d5da580d245f36d74dfba4d28f54ef5519ee43aff6092743
   patches:
     - hugin-openexr3.patch
     # Line endings frustrate me. So I've just vendored the files but documented the patch.
@@ -31,7 +31,7 @@ source:
     - avoid_random_shuffler_for_cpp17.patch
 
 build:
-  number: 6
+  number: 0
 
 requirements:
   build:
