@@ -62,6 +62,7 @@ requirements:
     - openexr
     - libvigra
     - exiv2
+    - expat
     - glew
     - libsqlite
     - lcms2
@@ -130,6 +131,7 @@ outputs:
         - openexr
         - libvigra
         - exiv2
+        - expat
         - glew
         - libsqlite
         - lcms2
