@@ -1,4 +1,4 @@
-{% set version = "2023.0.0" %}
+{% set version = "2024.0.1" %}
 {% set version_major_minor = ".".join(version.split('.')[:2]) %}
 
 package:
@@ -8,7 +8,7 @@ package:
 source:
   # url: https://iweb.dl.sourceforge.net/project/hugin/hugin/hugin-{{ version_major_minor }}/hugin-{{ version }}.tar.bz2
   url: https://sourceforge.net/projects/hugin/files/hugin/hugin-{{ version_major_minor }}/hugin-{{ version }}.tar.bz2
-  sha256: 04a39fccc6017e0544c639bd22309472c574d35b3455cbade1fc3870e631632b
+  sha256: 13ec0cdeeb4eb63149c833768d3e374e7cf5a6a8d8d02d50885ce496f05ba7e4
   patches:
     - hugin-openexr3.patch
     # Line endings frustrate me. So I've just vendored the files but documented the patch.
@@ -17,21 +17,12 @@ source:
     - link_to_shared_getopt_win.patch
     # finite keyword deprecated in C99
     - isfinite.patch
-    # Backport for boost 1.86
-    # https://sourceforge.net/p/hugin/hugin/ci/4d081490b48aaff820cee7601b8624b37b652c06/
-    - fix_deprecated_boost_copy_option.diff
-    # Backport of https://sourceforge.net/p/hugin/hugin/ci/2353340335e10a5c769ca2f7d3346658eb5e46d8/
-    - patch_for_modern_throw.patch
-    # https://sourceforge.net/p/hugin/hugin/ci/109a3e0c5019dc6cc341d4222c0a919339975afe/
-    - fix_deprecated_unary_function.patch
-    # https://sourceforge.net/p/hugin/hugin/ci/f553eed50964e4ae5a9bef357348ad0accdcb87b/
-    - fixes_for_cpp11.patch
-    # My own patch following 
+    # My own patch following
     # https://github.com/flann-lib/flann/commit/be80cefa69b314a3d9e1ab971715e84145863ebb#diff-6c163d1ce608acc3d5252db5576dd1673326ec02dbaae54b695a7b19c9223a0dR271
     - avoid_random_shuffler_for_cpp17.patch
 
 build:
-  number: 6
+  number: 0
 
 requirements:
   build:
@@ -62,6 +53,7 @@ requirements:
     - openexr
     - libvigra
     - exiv2
+    - expat
     - glew
     - libsqlite
     - lcms2
@@ -130,6 +122,7 @@ outputs:
         - openexr
         - libvigra
         - exiv2
+        - expat
         - glew
         - libsqlite
         - lcms2
@@ -144,13 +137,6 @@ outputs:
         - enblend
         - pthreads-win32  # [win]
         - getopt-win32    # [win]
-        # Warning: With vanially conda, wxwidgets will not work on linux since they
-        # internally code strings as UTF-16 strings on windows
-        # conda-forge has patched conda: https://github.com/conda-forge/conda-feedstock/pull/117
-        # But upstream has rejected a similar patch:
-        # https://github.com/conda/conda/pull/9946
-        # In favor of more time to work on a longer term fix
-        # https://github.com/conda/conda-build/blob/master/tests/test_api_build.py#L240
         - wxwidgets
         - libglu  # [linux]
       run:
