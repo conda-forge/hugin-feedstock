@@ -10,6 +10,8 @@ cxx_compiler:
 - vs2019
 exiv2:
 - '0.28'
+expat:
+- '2'
 fftw:
 - '3'
 glew:
@@ -39,6 +41,6 @@ perl:
 target_platform:
 - win-64
 wxwidgets:
-- '3.2'
+- 3.2.6
 zlib:
 - '1'
