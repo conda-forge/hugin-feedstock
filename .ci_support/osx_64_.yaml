@@ -20,6 +20,8 @@ cxx_compiler_version:
 - '18'
 exiv2:
 - '0.28'
+expat:
+- '2'
 fftw:
 - '3'
 glew:
