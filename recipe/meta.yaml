@@ -37,6 +37,7 @@ requirements:
     - binutils     # [linux]
     - pkg-config   # [unix]
   host:
+    - xorg-xorgproto           # [linux]
     - xorg-libxfixes           # [linux]
     - xorg-libsm               # [linux]
     - libgl-devel              # [linux]
@@ -64,15 +65,10 @@ requirements:
     # For some reason these are requried by the windows
     # build system
     - enblend
-    - pthreads-win32  # [win]
-    - getopt-win32    # [win]
   run:
-    - pthreads-win32  # [win]
     # not sure why run exports isn't working
     - exiftool
     - enblend
-    - xorg-libx11  # [linux]
-    - xorg-libsm   # [linux]
 
 test:
   commands:
@@ -107,6 +103,7 @@ outputs:
         - pkg-config  # [unix]
       host:
         - {{ pin_subpackage('hugin-base', exact=True) }}
+        - xorg-xorgproto           # [linux]
         - xorg-libxfixes           # [linux]
         - xorg-libsm               # [linux]
         - libgl-devel              # [linux]
@@ -135,10 +132,7 @@ outputs:
         # For some reason these are requried by the windows
         # build system
         - enblend
-        - pthreads-win32  # [win]
-        - getopt-win32    # [win]
         - wxwidgets
-        - libglu  # [linux]
       run:
         - {{ pin_subpackage('hugin-base', exact=True) }}
 
