@@ -65,6 +65,7 @@ requirements:
     # For some reason these are requried by the windows
     # build system
     - enblend
+    - getopt-win32    # [win]
   run:
     # not sure why run exports isn't working
     - exiftool
@@ -132,6 +133,7 @@ outputs:
         # For some reason these are requried by the windows
         # build system
         - enblend
+        - getopt-win32    # [win]
         - wxwidgets
       run:
         - {{ pin_subpackage('hugin-base', exact=True) }}
