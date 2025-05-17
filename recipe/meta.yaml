@@ -22,7 +22,7 @@ source:
     - avoid_random_shuffler_for_cpp17.patch
 
 build:
-  number: 2
+  number: 3
 
 requirements:
   build:
