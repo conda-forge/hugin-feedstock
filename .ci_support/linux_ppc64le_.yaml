@@ -51,7 +51,7 @@ perl:
 target_platform:
 - linux-ppc64le
 wxwidgets:
-- 3.2.7
+- 3.2.8
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
