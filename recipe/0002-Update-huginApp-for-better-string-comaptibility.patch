@@ -1,0 +1,129 @@
+From b8fc67ff50b8bb37fc48fae053b853ed8a57f77c Mon Sep 17 00:00:00 2001
+From: Mark Harfouche <mark.harfouche@gmail.com>
+Date: Sat, 26 Jul 2025 17:00:27 -0400
+Subject: [PATCH 2/2] Update huginApp for better string comaptibility
+
+---
+ src/hugin1/calibrate_lens/LensCalApp.cpp |  8 ++++----
+ src/hugin1/hugin/huginApp.cpp            | 16 ++++++++--------
+ 2 files changed, 12 insertions(+), 12 deletions(-)
+
+diff --git a/src/hugin1/calibrate_lens/LensCalApp.cpp b/src/hugin1/calibrate_lens/LensCalApp.cpp
+index 1d5d992..5b79fc6 100755
+--- a/src/hugin1/calibrate_lens/LensCalApp.cpp
++++ b/src/hugin1/calibrate_lens/LensCalApp.cpp
+@@ -7,7 +7,7 @@
+  *
+  */
+ 
+-/* 
++/*
+  *  This program is free software; you can redistribute it and/or
+  *  modify it under the terms of the GNU General Public
+  *  License as published by the Free Software Foundation; either
+@@ -90,7 +90,7 @@ bool LensCalApp::OnInit()
+ 
+     if ( ! wxFile::Exists(m_xrcPrefix + wxT("/lenscal_frame.xrc")) )
+     {
+-        wxMessageBox(_("xrc directory not found, hugin needs to be properly installed\nTried Path:" + m_xrcPrefix ), _("Fatal Error"));
++        wxMessageBox(_("xrc directory not found, hugin needs to be properly installed\nTried Path:") + m_xrcPrefix, _("Fatal Error"));
+         return false;
+     }
+ 
+@@ -116,7 +116,7 @@ bool LensCalApp::OnInit()
+           DEBUG_TRACE("locale init failed");
+         }
+ 	}
+-	
++
+     // set the name of locale recource to look for
+     locale.AddCatalog(wxT("hugin"));
+ 
+@@ -218,7 +218,7 @@ void StoreFramePosition(wxTopLevelWindow * frame, const wxString & basename)
+ #if ( __WXGTK__ )
+ // restoring the splitter positions properly when maximising doesn't work.
+ // Disabling maximise on wxWidgets >= 2.6.0 and gtk
+-    
++
+         wxSize sz = frame->GetClientSize();
+         config->Write(wxT("/") + basename + wxT("/width"), sz.GetWidth());
+         config->Write(wxT("/") + basename + wxT("/height"), sz.GetHeight());
+diff --git a/src/hugin1/hugin/huginApp.cpp b/src/hugin1/hugin/huginApp.cpp
+index 295a207..cfe0a5b 100755
+--- a/src/hugin1/hugin/huginApp.cpp
++++ b/src/hugin1/hugin/huginApp.cpp
+@@ -146,7 +146,7 @@ wxIMPLEMENT_WX_THEME_SUPPORT
+ wxIMPLEMENT_APP_NO_MAIN(huginApp);
+ #include <stdlib.h>
+ int main(int argc, char **argv)
+-{   
++{
+     wxDISABLE_DEBUG_SUPPORT();
+     char backend[]="GDK_BACKEND=x11";
+     putenv(backend);
+@@ -202,7 +202,7 @@ bool huginApp::OnInit()
+     wxSystemOptions::SetOption(wxT("mac.listctrl.always_use_generic"), 1);
+     // On OS X the file open does by default not show the file type list
+     // Apple means this is not necessary
+-    // but the the add images dialog needs this selection, so force to 
++    // but the the add images dialog needs this selection, so force to
+     // display always the file type list
+     wxSystemOptions::SetOption(wxOSX_FILEDIALOG_ALWAYS_SHOW_TYPES, 1);
+ #endif
+@@ -256,7 +256,7 @@ bool huginApp::OnInit()
+         }
+     }
+ #endif
+-    
++
+ #elif defined UNIX_SELF_CONTAINED_BUNDLE
+     // initialize paths
+     {
+@@ -279,7 +279,7 @@ bool huginApp::OnInit()
+ #endif
+ 
+     if ( ! wxFile::Exists(m_xrcPrefix + wxT("/main_frame.xrc")) ) {
+-        wxMessageBox(_("xrc directory not found, hugin needs to be properly installed\nTried Path:" + m_xrcPrefix ), _("Fatal Error"));
++        wxMessageBox(_("xrc directory not found, hugin needs to be properly installed\nTried Path:") + m_xrcPrefix , _("Fatal Error"));
+         return false;
+     }
+ 
+@@ -306,7 +306,7 @@ bool huginApp::OnInit()
+           DEBUG_TRACE("locale init failed");
+         }
+ 	}
+-	
++
+     // set the name of locale recource to look for
+     locale.AddCatalog(wxT("hugin"));
+ 
+@@ -470,7 +470,7 @@ bool huginApp::OnInit()
+             m_workDir = wxT("/tmp");
+         }
+ #endif
+-        
++
+     }
+ 
+     if (!wxFileName::DirExists(m_workDir)) {
+@@ -518,7 +518,7 @@ bool huginApp::OnInit()
+             std::vector<std::string> filesv;
+             std::vector<std::string> rawFilesv;
+             bool actualPathSet = false;
+-            for (int i=1; i< argc; i++) 
++            for (int i=1; i< argc; i++)
+             {
+ #if defined __WXMSW__
+                 //expand wildcards
+@@ -783,7 +783,7 @@ void StoreFramePosition(wxTopLevelWindow * frame, const wxString & basename)
+ #if ( __WXGTK__ )
+ // restoring the splitter positions properly when maximising doesn't work.
+ // Disabling maximise on wxWidgets >= 2.6.0 and gtk
+-    
++
+         wxSize sz = frame->GetClientSize();
+         config->Write(wxT("/") + basename + wxT("/width"), sz.GetWidth());
+         config->Write(wxT("/") + basename + wxT("/height"), sz.GetHeight());
+-- 
+2.49.0
+

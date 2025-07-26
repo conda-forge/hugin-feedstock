@@ -21,6 +21,10 @@ source:
     # https://github.com/flann-lib/flann/commit/be80cefa69b314a3d9e1ab971715e84145863ebb#diff-6c163d1ce608acc3d5252db5576dd1673326ec02dbaae54b695a7b19c9223a0dR271
     - avoid_random_shuffler_for_cpp17.patch
 
+    # wx 3.3.1 compatibility
+    - 0001-Update-StitchingExecutor-to-cast-string-types-for-wx.patch
+    - 0002-Update-huginApp-for-better-string-comaptibility.patch
+
 build:
   number: 5
 
