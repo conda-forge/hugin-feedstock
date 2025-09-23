@@ -26,7 +26,7 @@ source:
     - 0002-Update-huginApp-for-better-string-comaptibility.patch
 
 build:
-  number: 6
+  number: 7
 
 requirements:
   build:
