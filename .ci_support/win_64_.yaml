@@ -33,7 +33,7 @@ libtiff:
 libvigra:
 - '1.12'
 openexr:
-- '3.3'
+- '3.4'
 pango:
 - '1'
 perl:
