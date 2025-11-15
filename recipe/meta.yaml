@@ -16,7 +16,7 @@ source:
     #   # - windows_unified_manifest.patch
     - link_to_shared_getopt_win.patch
     # finite keyword deprecated in C99
-    #   - isfinite.patch
+    - isfinite.patch
     #   # My own patch following
     #   # https://github.com/flann-lib/flann/commit/be80cefa69b314a3d9e1ab971715e84145863ebb#diff-6c163d1ce608acc3d5252db5576dd1673326ec02dbaae54b695a7b19c9223a0dR271
     #   - avoid_random_shuffler_for_cpp17.patch
