@@ -310,7 +310,7 @@ ENDIF(PANO13_FOUND)
 INCLUDE_DIRECTORIES(${PANO_INCLUDE_DIR})
 
 # Check CXX11 compiler
-SET(CMAKE_CXX_STANDARD 11)
+SET(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 # necessary threads lib
 SET(THREADS_PREFER_PTHREAD_FLAG ON)
@@ -320,77 +320,6 @@ IF(WIN32)
   # for Windows Vista support
   ADD_DEFINITIONS(-DPSAPI_VERSION=1)
 ENDIF(WIN32)
-
-# check if we have C++17 <filesystem> header
-INCLUDE(CheckCXXSourceCompiles)
-check_cxx_source_compiles(
-  "
-    #include <filesystem>
-    #include <string>
-    
-    #if defined _MSC_VER && _MSC_VER <= 1900
-    namespace fs = std::tr2::sys;
-    #else
-    namespace fs = std::experimental::filesystem;
-    #endif
-
-    int main()
-    {
-      fs::path filepath;
-      filepath=fs::absolute(filepath);
-      std::string s=filepath.filename().string();
-      return 0;    
-    };
-  "
-  HAVE_STD_FILESYSTEM
-)
-
-IF(HAVE_STD_FILESYSTEM)
-# in this combination we don't need Boost anymore
-ELSE()
-##
-## Boost
-##
-# I am sick of having to edit the boost rev number in this file.
-# Now it is a cache variable you can edit in cmakesetup --TKS
-#
-IF( NOT Boost_root_suffix )
-  SET( Boost_root_suffix _1_54_0 CACHE STRING "suffix of boost root dir." FORCE )
-ENDIF( NOT Boost_root_suffix )
-
-IF(WIN32)
-  IF(HUGIN_SHARED)
-    SET(Boost_USE_STATIC_LIBS OFF)
-    SET(Boost_USE_STATIC_RUNTIME OFF)
-    # ADD_DEFINITIONS(-DBOOST_ALL_DYN_LINK)
-    # ADD_DEFINITIONS(-D_DLL)
-    ADD_DEFINITIONS(-DBOOST_ALL_NO_LIB)
-  ELSE()
-    SET(Boost_USE_STATIC_LIBS ON)
-    SET(Boost_USE_STATIC_RUNTIME ON)
-  ENDIF()
-  # If BOOST_ROOT was defined in the environment, use it. 
-  IF(NOT BOOST_ROOT AND NOT $ENV{BOOST_ROOT} STREQUAL "") 
-    SET(BOOST_ROOT $ENV{BOOST_ROOT})
-  ENDIF()
-  IF(NOT BOOST_ROOT)
-    SET(BOOST_ROOT ${SOURCE_BASE_DIR}/boost${Boost_root_suffix})
-  ENDIF()
-ENDIF(WIN32)
-
-FIND_PACKAGE(Boost 1.47 COMPONENTS filesystem system)
-
-IF (NOT Boost_FOUND)
-  IF(WIN32)
-    MESSAGE(FATAL_ERROR "Boost not found. Bad BOOST_ROOT? On windows, try editing Boost_root_suffix")
-  ELSE()
-    MESSAGE(FATAL_ERROR "Boost not found. Maybe wrong version. Hugin requires at least version 1.47")
-  ENDIF()
-ENDIF (NOT Boost_FOUND)
-
-INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
-LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
-ENDIF()
 
 # find enblend-enfuse base path
 IF(WIN32)
