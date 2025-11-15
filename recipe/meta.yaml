@@ -1,4 +1,4 @@
-{% set version = "2024.0.1" %}
+{% set version = "2025.0.0" %}
 {% set version_major_minor = ".".join(version.split('.')[:2]) %}
 
 package:
@@ -8,7 +8,7 @@ package:
 source:
   # url: https://iweb.dl.sourceforge.net/project/hugin/hugin/hugin-{{ version_major_minor }}/hugin-{{ version }}.tar.bz2
   url: https://sourceforge.net/projects/hugin/files/hugin/hugin-{{ version_major_minor }}/hugin-{{ version }}.tar.bz2
-  sha256: 13ec0cdeeb4eb63149c833768d3e374e7cf5a6a8d8d02d50885ce496f05ba7e4
+  sha256: 0de27a5d5432e36d4e5d38ac25d7bcafc7b7dd542aab031640a61ed66767076c
   patches:
     - hugin-openexr3.patch
     # Line endings frustrate me. So I've just vendored the files but documented the patch.
@@ -26,7 +26,7 @@ source:
     - 0002-Update-huginApp-for-better-string-comaptibility.patch
 
 build:
-  number: 9
+  number: 0
 
 requirements:
   build:
