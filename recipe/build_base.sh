@@ -6,6 +6,7 @@ set -ex
 rm -f CMakeModules/FindPNG.cmake
 rm -f CMakeModules/FindZLIB.cmake
 rm -f CMakeModules/FindOpenEXR.cmake
+rm -f CMakeModules/FindVIGRA.cmake
 
 ls -lah CMakeModules
 

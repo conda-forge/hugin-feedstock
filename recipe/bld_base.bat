@@ -5,18 +5,18 @@ del CMakeModules\FindZLIB.cmake
 del CMakeModules\FindOpenEXR.cmake
 
 copy %RECIPE_DIR%\CMakeLists.txt .
-if errorlevel 1 exit 1
+if %ERRORLEVEL% neq 0 exit 1
 
 copy %RECIPE_DIR%\hugin1CMakeLists.txt src\hugin1\CMakeLists.txt
-if errorlevel 1 exit 1
+if %ERRORLEVEL% neq 0 exit 1
 
 copy %RECIPE_DIR%\win_bundle.cmake CMakeModules\win_bundle.cmake
-if errorlevel 1 exit 1
+if %ERRORLEVEL% neq 0 exit 1
 
 mkdir build
-if errorlevel 1 exit 1
+if %ERRORLEVEL% neq 0 exit 1
 cd build
-if errorlevel 1 exit 1
+if %ERRORLEVEL% neq 0 exit 1
 
 cmake -LAH -G Ninja                           ^
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5        ^
@@ -45,8 +45,7 @@ cmake -LAH -G Ninja                           ^
     -DEXIFTOOL_EXE_DIR=%PREFIX%\bin           ^
     -DENABLE_GUI=OFF                          ^
     ..
-
-if errorlevel 1 exit 1
+if %ERRORLEVEL% neq 0 exit 1
 
 ninja install
-if errorlevel 1 exit 1
+if %ERRORLEVEL% neq 0 exit 1
