@@ -13,7 +13,7 @@ source:
     - link_to_shared_getopt_win.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
