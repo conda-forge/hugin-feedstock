@@ -11,9 +11,11 @@ source:
   sha256: 7cf8eb33a6a8848cc7f816faf4bc88389228883d5513136dccb5cb243912ab79
   patches:
     - link_to_shared_getopt_win.patch
+    # backport of https://sourceforge.net/p/hugin/hugin/ci/37d3b91882d1edf92bef221519c1241c04202ff2/
+    - fix_scroll_handler_wx33.patch
 
 build:
-  number: 3
+  number: 4
 
 requirements:
   build:
