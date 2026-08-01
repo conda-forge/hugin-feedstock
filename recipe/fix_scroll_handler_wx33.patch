@@ -1,0 +1,22 @@
+TreeListCtrl: Fix scroll handler
+
+HandleOnScroll is private in wxWidgets 3.3.4 and later. So use the
+default scroll processing instead of calling scrolling procedure
+directly.
+
+Backported from upstream commit
+https://sourceforge.net/p/hugin/hugin/ci/37d3b91882d1edf92bef221519c1241c04202ff2/
+
+--- a/src/hugin1/hugin/treelistctrl.cpp
++++ b/src/hugin1/hugin/treelistctrl.cpp
+@@ -4276,8 +4276,8 @@ void wxTreeListMainWindow::OnScroll (wxScrollWinEvent& event) {
+     // send event to wxTreeListCtrl (for user code)
+     if (m_owner->GetEventHandler()->ProcessEvent(event)) return; // handled (and not skipped) in user code
+
+-    // TODO
+-    HandleOnScroll( event );
++    // let base class do scroll
++    event.Skip();
+
+     if(event.GetOrientation() == wxHORIZONTAL) {
+         m_owner->GetHeaderWindow()->Refresh();
