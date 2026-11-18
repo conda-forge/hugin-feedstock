@@ -1,4 +1,4 @@
-{% set version = "2025.0.1" %}
+{% set version = "2026.0.0" %}
 {% set version_major_minor = ".".join(version.split('.')[:2]) %}
 
 package:
@@ -8,14 +8,14 @@ package:
 source:
   # url: https://iweb.dl.sourceforge.net/project/hugin/hugin/hugin-{{ version_major_minor }}/hugin-{{ version }}.tar.bz2
   url: https://sourceforge.net/projects/hugin/files/hugin/hugin-{{ version_major_minor }}/hugin-{{ version }}.tar.bz2
-  sha256: 7cf8eb33a6a8848cc7f816faf4bc88389228883d5513136dccb5cb243912ab79
+  sha256: 61de89179d97c2b601b4636ba17dfdcf25d423e75f6ad50f86acbdd9bff4dde4
   patches:
     - link_to_shared_getopt_win.patch
     # backport of https://sourceforge.net/p/hugin/hugin/ci/37d3b91882d1edf92bef221519c1241c04202ff2/
     - fix_scroll_handler_wx33.patch
 
 build:
-  number: 7
+  number: 0
 
 requirements:
   build:
